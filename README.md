@@ -1,6 +1,6 @@
-# ABLE by M.I.L.K.D
+# Able by M.I.L.K.D
 
-This is the repo for the final version of the CSC 4710 Project.
+This is the repo for the CSC 4110 Project.
 
 ### Prerequisites
 
@@ -30,7 +30,7 @@ An alternative to using the console is to go file > settings > Project:<projName
   From here you can click the '+' on the right side of the pane and search for the library
   Click 'Install Package' when you have the correct one selected
 
-#### Make sure your configuration script path is pointing to 'project.py' when you run the program and set for flask. This can be done by selecting the 'edit configurations' option in the top right next to the 'run' button. ####
+#### Make sure your configuration script path is pointing to 'app.py' when you run the program and set for flask. This can be done by selecting the 'edit configurations' option in the top right next to the 'run' button. ####
 
 ## Built With
 
