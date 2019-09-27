@@ -1,1 +1,8 @@
+# file to keep track of items we don't want in our project
+
+# Holds personal IDE settings. Not needed in repository
 .idea
+# More IDE files not necessary
+*.iml
+# Unnecessary to track
+.venv
