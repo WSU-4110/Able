@@ -1,0 +1,10 @@
+<!-- The main template file that extends the Bootstrap file, making it work -->
+{% extends 'bootstrap/base.html' %}
+
+<!-- The main template that all others using 'extends base.html' will inherit from -->
+{% block content %}
+    <div class="container">
+        {# application content needs to be provided in the app_content block #}
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
