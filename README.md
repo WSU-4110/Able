@@ -9,6 +9,7 @@ Required Software and Libraries
 ```
 -Python 3.7.3
 -Flask
+-Flask-Bootstrap
 ```
 
 Installing
