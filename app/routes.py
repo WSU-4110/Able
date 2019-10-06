@@ -1,10 +1,5 @@
-from flask import Flask, render_template
-from flask_bootstrap import Bootstrap
-
-# Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
-# Instantiates the Flask app I think?
-app = Flask(__name__, template_folder='templates')
-Bootstrap(app)
+from app import app
+from flask import render_template
 
 # Root directory route. This will always be the first page to load.
 @app.route('/')
