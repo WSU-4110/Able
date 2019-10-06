@@ -1,11 +1,13 @@
 from app import app
 from flask import render_template
+from app.forms import AccountCreation
 
 # Root directory route. This will always be the first page to load.
 @app.route('/')
 def main_page():
     # Telling it what to render out. When it gets more complex, we will be passing HTML templates within these functions
-    return render_template('main.html')
+    account_creation = AccountCreation()
+    return render_template('account-creation.html', form=account_creation)
 
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯

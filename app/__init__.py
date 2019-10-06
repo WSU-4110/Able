@@ -6,6 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 Bootstrap(app)
+# technically we should separate this out, but for a class project it doesn't matter
+app.config['SECRET_KEY'] = 'how-many-penguins-exist-in-michigan'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 db = SQLAlchemy(app)
 
