@@ -1,3 +1,4 @@
+# This will hold most of the logic for the pages in the app
 from app import app
 from flask import render_template
 from app.forms import AccountCreation
