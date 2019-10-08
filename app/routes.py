@@ -8,7 +8,7 @@ from app.forms import AccountCreation
 def main_page():
     # Telling it what to render out. When it gets more complex, we will be passing HTML templates within these functions
     account_creation = AccountCreation()
-    return render_template('account-creation.html', form=account_creation)
+    return render_template('main.html', form=account_creation)
 
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
