@@ -23,3 +23,5 @@ migrate = Migrate(app, db)
 
 # Why are these at the bottom? Couldn't tell ya! :)
 from app import routes, models
+
+# This is a test comment;
