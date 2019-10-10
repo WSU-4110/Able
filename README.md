@@ -10,6 +10,8 @@ Required Software and Libraries
 -Python 3.7.3
 -Flask
 -Flask-SQLAlchemy
+-Flask-WTF
+-Flask-Migrate
 ```
 
 Installing
@@ -26,6 +28,8 @@ This is to be done from the python console in PyCharm or follow the alternative 
 ---------------------------------------------------------------------------------------------
 pip install Flask
 pip install Flask-SQLAlchemy
+pip install Flask-WTF
+pip install Flask-Migrate
 ```
 
 An alternative to using the console is to go file > settings > Project:<projName> > Project interpreter

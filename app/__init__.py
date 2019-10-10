@@ -8,11 +8,15 @@ import os
 
 # Setting up SQLite to work
 basedir = os.path.abspath(os.path.dirname(__file__))
+# Instantiating Flask
 app = Flask(__name__)
+# Bootstrap CSS
 Bootstrap(app)
 # technically we should separate this out, but for a class project it doesn't matter
 app.config['SECRET_KEY'] = 'how-many-penguins-exist-in-michigan'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'able.db')
+# On two lines to follow PEP8 standards
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
+                                        'sqlite:///' + os.path.join(basedir, 'able.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

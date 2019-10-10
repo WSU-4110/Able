@@ -6,14 +6,13 @@
             Account Creation
         </h1>
         <form>
-            <!--
-            This tag/field protects against CSRF attacks and is part of best practices
-            Our app won't be on the web or exposed to it, but it's a good and simple habit to include it
-             -->
-            {{form.hidden_tag()}}
             <p>
                 {{form.username.label}}<br>
                 {{form.username}}
+            </p>
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email }}
             </p>
             <p>
                 {{form.password.label}}<br>
