@@ -9,7 +9,9 @@ Required Software and Libraries
 ```
 -Python 3.7.3
 -Flask
--Flask-Bootstrap
+-Flask-SQLAlchemy
+-Flask-WTF
+-Flask-Migrate
 ```
 
 Installing
@@ -25,16 +27,17 @@ Create a new Python project from this repo. You will then need to use pip to ins
 This is to be done from the python console in PyCharm or follow the alternative method below
 ---------------------------------------------------------------------------------------------
 pip install Flask
-pip install Flask-Bootstrap
+pip install Flask-SQLAlchemy
+pip install Flask-WTF
+pip install Flask-Migrate
 ```
 
 An alternative to using the console is to go file > settings > Project:<projName> > Project interpreter
   From here you can click the '+' on the right side of the pane and search for the library
   Click 'Install Package' when you have the correct one selected
 
-#### Make sure your configuration script path is pointing to 'routes.py' when you run the program and set for flask. This can be done by selecting the 'edit configurations' option in the top right next to the 'run' button, selecting the 'Flask' tempalte, and setting your target. ####
+##### Make sure your configuration script path is pointing to 'app.py' when you run the program and set for flask. This can be done by selecting the 'edit configurations' option in the top right next to the 'run' button. ####
 
 ## Built With
 
 * [Flask](http://flask.pocoo.org/) - The web framework used
-* [Bootstrap](https://getbootstrap.com/) - Easy CSS by Twitter
