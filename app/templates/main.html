@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <title>Place Autocomplete</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -16,13 +17,15 @@
         margin: 0;
         padding: 0;
           background-color: darkslategray;
+          font: "Josefin Sans";
       }
       h1{
           text-align: center;
           color: #f1f1f1;
           font-size:40px;
           padding: 5px;
-          margin: 0px;
+          margin: 5px;
+          position: relative;
       }
       #description {
         font-family: Roboto;
@@ -88,7 +91,7 @@
           height: 100%;
           width: 0;
           position: fixed;
-          z-index: 1;
+          z-index: 2;
           top: 0;
           left: 0;
           background-color: #111;
@@ -115,13 +118,21 @@
           margin-left: 50px;
       }
       #menuicon{
-
+        position: absolute;
+          z-index: 1;
+            top: 0;
+          color: #f1f1f1;
+          float: left;
+          margin-left:5px;
       }
+        #top{
+            position:relative;
+        }
     </style>
   </head>
   <body>
     <div id="top">
-        <h1>Able</h1>
+        <h1>Able </h1>
         <span id="menuicon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
     </div>
     <div class="pac-card" id="pac-card">
