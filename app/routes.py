@@ -23,6 +23,10 @@ def registration():
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
 
+@app.route('/notifications/')
+def notifications():
+    return 'Done.'
+
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
