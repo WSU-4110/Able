@@ -20,7 +20,7 @@ def registration():
         user.set_password(account_creation.password.data)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('/'))
+        return redirect('/')
     return render_template('account-creation.html', form=account_creation)
 
 

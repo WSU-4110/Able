@@ -5,7 +5,8 @@
         <h1>
             Account Creation
         </h1>
-        <form>
+        <form method="POST" action=''>
+            {{ form.csrf_token }}
             <p>
                 {{form.username.label}}<br>
                 {{form.username}}
