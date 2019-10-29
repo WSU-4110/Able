@@ -19,3 +19,13 @@ class User(db.Model):
     # Method to debug by printing out results of creation when calling the object alone
     def __repr__(self):
         return 'User: {}, Email: {}'.format(self.username, self.email)
+
+class Review(db.Model):
+    user = db.Column(db.ForeignKey(User))
+    location = db.Column(db.ForeignKey(Location))
+    review = db.Column(db.VARCHAR(1000), nullable = True)
+    rating = db.Column (db.Integer, nullable = False)
+
+
+
+
