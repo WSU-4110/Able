@@ -22,6 +22,7 @@ class User(db.Model):
 
 
 class Reviews(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
     location = db.Column(db.Integer, db.ForeignKey('Location.id'), nullable=False)
     user = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
     rating = db.Column(db.Integer, nullable=True)
