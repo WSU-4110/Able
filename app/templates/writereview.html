@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,23 +6,12 @@
     <title>Write a Review</title>
 </head>
 <body>
+<h1>Write a Review!</h1>
 <form method="POST" action=''>
             {{ form.csrf_token }}
             <p>
-                {{form.username.label}}<br>
-                {{form.username}}
-            </p>
-            <p>
-                {{ form.email.label }}<br>
-                {{ form.email }}
-            </p>
-            <p>
-                {{form.password.label}}<br>
-                {{form.password}}
-            </p>
-            <p>
-                {{form.password2.label}}<br>
-                {{form.password2}}
+                {{form.review.label}}<br>
+                {{form.review}}
             </p>
             <p>
                 {{form.submit()}}

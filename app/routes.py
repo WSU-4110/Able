@@ -4,12 +4,19 @@ import sqlite3
 from flask import render_template, redirect, url_for
 from app.models import User
 from app.forms import AccountCreation
+from app.forms import ReviewCreation
 
 # Root directory route. This will always be the first page to load.
 @app.route('/')
 def main_page():
     # Telling it what to render out. When it gets more complex, we will be passing HTML templates within these functions
     return render_template('main.html')
+
+
+@app.route('/write')
+def write_review():
+    new_review = ReviewCreation()
+    return render_template('writereview.html')
 
 
 @app.route('/reviews')
