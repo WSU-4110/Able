@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Write a Review</title>
+</head>
+<body>
+<form method="POST" action=''>
+            {{ form.csrf_token }}
+            <p>
+                {{form.username.label}}<br>
+                {{form.username}}
+            </p>
+            <p>
+                {{ form.email.label }}<br>
+                {{ form.email }}
+            </p>
+            <p>
+                {{form.password.label}}<br>
+                {{form.password}}
+            </p>
+            <p>
+                {{form.password2.label}}<br>
+                {{form.password2}}
+            </p>
+            <p>
+                {{form.submit()}}
+            </p>
+        </form>
+</body>
+</html>

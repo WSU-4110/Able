@@ -14,9 +14,9 @@ def main_page():
 
 @app.route('/reviews')
 def reviews():
-    connection = sqlite3.connect("able.db")
+    connection = sqlite3.connect("app/able.db")
     crsr = connection.cursor()
-    crsr.execute("SELECT * FROM REVIEWS WHERE LOCATION='id'")
+    crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
     ans = crsr.fetchall()
     for i in ans:
         print(i)

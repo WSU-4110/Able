@@ -23,8 +23,8 @@ class User(db.Model):
 
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
-    location = db.Column(db.Integer, db.ForeignKey('Location.id'), nullable=False)
-    user = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
+    location = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
+    user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     rating = db.Column(db.Integer, nullable=True)
     review = db.Column(db.TEXT(), nullable=True)
 
@@ -39,3 +39,6 @@ class Location(db.Model):
     audio_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
     quiet_space = db.Column(db.BOOLEAN, nullable=False, default=0)
     parking = db.Column(db.BOOLEAN, nullable=False, default=0)
+
+
+db.create_all()
