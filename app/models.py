@@ -20,12 +20,21 @@ class User(db.Model):
     def __repr__(self):
         return 'User: {}, Email: {}'.format(self.username, self.email)
 
-class Review(db.Model):
-    user = db.Column(db.ForeignKey(User))
-    location = db.Column(db.ForeignKey(Location))
-    review = db.Column(db.VARCHAR(1000), nullable = True)
-    rating = db.Column (db.Integer, nullable = False)
+
+class Reviews(db.Model):
+    location = db.Column(db.Integer, db.ForeignKey('Location.id'), nullable=False)
+    user = db.Column(db.Integer, db.ForeignKey('User.id'), nullable=False)
+    rating = db.Column(db.Integer, nullable=True)
+    review = db.Column(db.TEXT(), nullable=True)
 
 
-
-
+class Location(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
+    address = db.Column(db.VARCHAR(500), nullable=False)
+    type = db.Column(db.VARCHAR(300), nullable=False)
+    braille = db.Column(db.BOOLEAN, nullable=False, default=0)
+    wheelchair = db.Column(db.BOOLEAN, nullable=False, default=0)
+    closed_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
+    audio_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
+    quiet_space = db.Column(db.BOOLEAN, nullable=False, default=0)
+    parking = db.Column(db.BOOLEAN, nullable=False, default=0)

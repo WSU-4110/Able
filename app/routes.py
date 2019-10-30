@@ -1,5 +1,6 @@
 # This will hold most of the logic for the pages in the app
 from app import app, db
+import sqlite3
 from flask import render_template, redirect, url_for
 from app.models import User
 from app.forms import AccountCreation
@@ -9,6 +10,17 @@ from app.forms import AccountCreation
 def main_page():
     # Telling it what to render out. When it gets more complex, we will be passing HTML templates within these functions
     return render_template('main.html')
+
+
+@app.route('/reviews')
+def reviews():
+    connection = sqlite3.connect("able.db")
+    crsr = connection.cursor()
+    crsr.execute("SELECT * FROM REVIEWS WHERE LOCATION='id'")
+    ans = crsr.fetchall()
+    for i in ans:
+        print(i)
+    return render_template('reviews.html')
 
 
 # Account creation page route
@@ -28,3 +40,5 @@ def registration():
 # I just now this makes it able to run
 if __name__ == '__main__':
     app.run()
+
+
