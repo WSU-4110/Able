@@ -82,6 +82,19 @@
         // bounds option in the request.
         autocomplete.bindTo('bounds', map);
 
+        //Custom marker example
+
+         var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+         var infoIcon = new google.maps.Marker({
+
+             position: {lat: 42.354549, lng: -83.0685272},
+             map: map,
+             icon: iconBase + 'info-i_maps.png'
+  });
+
+        // Call setMap() to add custom marker to map;
+        marker.setMap(map);
+
         //Geolocation starts
         function writeAddressName(latLng) {
         var geocoder = new google.maps.Geocoder();
