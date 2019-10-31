@@ -2,10 +2,8 @@
 from app import app, db
 import sqlite3
 from flask import render_template, redirect, url_for
-from app.models import User
-from app.forms import AccountCreation
-from app.forms import ReviewCreation
-
+from app.models import User, Reviews
+from app.forms import AccountCreation, ReviewCreation
 # Root directory route. This will always be the first page to load.
 @app.route('/')
 def main_page():
@@ -13,9 +11,14 @@ def main_page():
     return render_template('main.html')
 
 
-@app.route('/write', methods=['POST'])
+@app.route('/write', methods=['GET','POST'])
 def write_review():
     new_review = ReviewCreation()
+    if new_review.validate_on_submit():
+        review = Reviews(review=new_review.review.data, location=1, user='gh')
+        db.session.add(review)
+        db.session.commit()
+        return redirect('/')
     return render_template('writereview.html', form=new_review)
 
 

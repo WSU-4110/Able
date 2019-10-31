@@ -22,11 +22,11 @@ class User(db.Model):
 
 
 class Reviews(db.Model):
-    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
-    location = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
-    user = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-    rating = db.Column(db.Integer, nullable=True)
-    review = db.Column(db.TEXT(), nullable=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    location = db.Column(db.Integer, db.ForeignKey('location.id'))
+    user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    rating = db.Column(db.Integer)
+    review = db.Column(db.TEXT())
 
 
 class Location(db.Model):
