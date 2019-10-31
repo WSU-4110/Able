@@ -19,4 +19,3 @@ class Email():
 
     except:
         print('Something went wrong...')
-

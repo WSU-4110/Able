@@ -31,6 +31,14 @@ def sending_emails():
     send.send_email()
     return render_template('main.html')
 
+@app.route('/see_editor_picks', methods=['GET', 'POST'])
+def retrieve_editor_picks():
+    return render_template('editor-picks.html')
+
+@app.route('/return_to_main', methods=['GET', 'POST'])
+def return_to_main_menu():
+    return render_template('main.html')
+
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
 if __name__ == '__main__':
