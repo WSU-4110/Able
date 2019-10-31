@@ -8,6 +8,7 @@ function initMap() {
     center: {lat: -33.8688, lng: 151.2195},
     zoom: 13
   });
+
   var card = document.getElementById('pac-card');
   var input = document.getElementById('pac-input');
   var types = document.getElementById('type-selector');
@@ -90,3 +91,6 @@ function initMap() {
         autocomplete.setOptions({strictBounds: this.checked});
       });
 }
+
+
+
