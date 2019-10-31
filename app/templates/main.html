@@ -39,6 +39,14 @@
         <input id="pac-input" type="text"
             placeholder="Enter a location">
       </div>
+      <div>
+        <form action="send_email_button">
+           <button type="submit">Send Email</button>
+         </form>
+         <form action="see_editor_picks">
+           <button type="submit">See the Editor Picks</button>
+         </form>
+      </div>
     </div>
     <div id="map"></div>
     <div id="infowindow-content">
@@ -72,7 +80,7 @@
         var input = document.getElementById('pac-input');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
-        
+
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
 
         var autocomplete = new google.maps.places.Autocomplete(input);
@@ -97,7 +105,7 @@
           map: map,
           anchorPoint: new google.maps.Point(0, -29)
         });
-        
+
         autocomplete.addListener('place_changed', function() {
           infowindow.close();
           marker.setVisible(false);
@@ -161,7 +169,7 @@
       function closeNav(){
                 document.getElementById("sidenav").style.width="0";
             }
-      
+
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaqk8sjXFvzcEsAeXlKMJpOWX5m7a_o1k&libraries=places&callback=initMap"
         async defer></script>
