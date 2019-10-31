@@ -3,8 +3,8 @@ import smtplib
 class Email():
 
   # This is the gmail username and password we will use for our tests. It is a safe account with no affiliation to anyone.
-  gmail_user = 'able4110group@gmail.com'  # create the gmail username
-  gmail_password = 'able12345'  # create the gmail password
+  #gmail_user = 'able4110group@gmail.com'  # create the gmail username
+  #gmail_password = 'able12345'  # create the gmail password
   def send_email(gmail_user, gmail_password):
     # Have a try-catch statement in case of a faliure to send the message
     try:
