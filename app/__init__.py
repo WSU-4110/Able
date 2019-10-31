@@ -22,4 +22,4 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Why are these at the bottom? Couldn't tell ya! :)
-from app import routes, models
+from app import routes, models, notifications

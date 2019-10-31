@@ -3,6 +3,7 @@ from app import app, db
 from flask import render_template, redirect, url_for
 from app.models import User
 from app.forms import AccountCreation
+from app.notifications import Email
 
 # Root directory route. This will always be the first page to load.
 @app.route('/')
@@ -23,6 +24,11 @@ def registration():
         return redirect('/')
     return render_template('account-creation.html', form=account_creation)
 
+@app.route('/send_email')
+def sending_emails():
+    send = Email()
+    send.send_email()
+    return render_template('send-notification.html')
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
