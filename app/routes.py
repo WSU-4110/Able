@@ -4,6 +4,8 @@ import sqlite3
 from flask import render_template, redirect, url_for
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation
+
+
 # Root directory route. This will always be the first page to load.
 @app.route('/')
 def main_page():
@@ -32,6 +34,11 @@ def reviews():
         print(i)
     return render_template('reviews.html')
 
+  
+@app.route('/navigation')
+def navigation():
+    return render_template('navigation.html')
+
 
 # Account creation page route
 @app.route('/register', methods=['GET', 'POST'])
@@ -50,5 +57,3 @@ def registration():
 # I just now this makes it able to run
 if __name__ == '__main__':
     app.run()
-
-
