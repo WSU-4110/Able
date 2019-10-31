@@ -24,11 +24,11 @@ def registration():
         return redirect('/')
     return render_template('account-creation.html', form=account_creation)
 
-@app.route('/send_email')
+@app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
     send.send_email()
-    return render_template('send-notification.html')
+    return render_template('main.html')
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
