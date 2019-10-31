@@ -27,7 +27,7 @@ def registration():
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
-    send.send_email('able4110group@gmail.com', 'able12345')
+    send.send_email()
     return render_template('main.html')
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
