@@ -13,10 +13,10 @@ def main_page():
     return render_template('main.html')
 
 
-@app.route('/write')
+@app.route('/write', methods=['POST'])
 def write_review():
     new_review = ReviewCreation()
-    return render_template('writereview.html')
+    return render_template('writereview.html', form=new_review)
 
 
 @app.route('/reviews')
