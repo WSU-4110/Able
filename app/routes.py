@@ -24,6 +24,7 @@ def registration():
         return redirect('/')
     return render_template('account-creation.html', form=account_creation)
 
+#This route points to a button which will send an email.
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
