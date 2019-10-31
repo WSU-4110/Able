@@ -1,8 +1,9 @@
 # This will hold any and all form templates
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField,TextAreaField
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from app.models import User
+from app.models import Reviews
 
 
 class AccountCreation(FlaskForm):
@@ -21,3 +22,8 @@ class AccountCreation(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+
+
+class ReviewCreation(FlaskForm):
+    review = TextAreaField('Review', validators=[DataRequired()])
+    submit = SubmitField('Submit')

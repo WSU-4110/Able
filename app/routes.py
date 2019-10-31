@@ -1,9 +1,10 @@
 # This will hold most of the logic for the pages in the app
 from app import app, db
+import sqlite3
 from flask import render_template, redirect, url_for
-from app.models import User
-from app.forms import AccountCreation
 from app.notifications import Email
+from app.models import User, Reviews
+from app.forms import AccountCreation, ReviewCreation
 
 
 # Root directory route. This will always be the first page to load.
@@ -13,6 +14,28 @@ def main_page():
     return render_template('main.html')
 
 
+@app.route('/write', methods=['GET','POST'])
+def write_review():
+    new_review = ReviewCreation()
+    if new_review.validate_on_submit():
+        review = Reviews(review=new_review.review.data, location=1, user='gh')
+        db.session.add(review)
+        db.session.commit()
+        return redirect('/')
+    return render_template('writereview.html', form=new_review)
+
+
+@app.route('/reviews')
+def reviews():
+    connection = sqlite3.connect("app/able.db")
+    crsr = connection.cursor()
+    crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
+    ans = crsr.fetchall()
+    for i in ans:
+        print(i)
+    return render_template('reviews.html')
+
+  
 @app.route('/navigation')
 def navigation():
     return render_template('navigation.html')

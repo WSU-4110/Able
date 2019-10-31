@@ -19,3 +19,26 @@ class User(db.Model):
     # Method to debug by printing out results of creation when calling the object alone
     def __repr__(self):
         return 'User: {}, Email: {}'.format(self.username, self.email)
+
+
+class Reviews(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    location = db.Column(db.Integer, db.ForeignKey('location.id'))
+    user = db.Column(db.Integer, db.ForeignKey('user.id'))
+    rating = db.Column(db.Integer)
+    review = db.Column(db.TEXT())
+
+
+class Location(db.Model):
+    id = db.Column(db.Integer, primary_key=True, nullable=False, autoincrement=True)
+    address = db.Column(db.VARCHAR(500), nullable=False)
+    type = db.Column(db.VARCHAR(300), nullable=False)
+    braille = db.Column(db.BOOLEAN, nullable=False, default=0)
+    wheelchair = db.Column(db.BOOLEAN, nullable=False, default=0)
+    closed_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
+    audio_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
+    quiet_space = db.Column(db.BOOLEAN, nullable=False, default=0)
+    parking = db.Column(db.BOOLEAN, nullable=False, default=0)
+
+
+db.create_all()
