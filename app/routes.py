@@ -21,7 +21,7 @@ def registration():
         user.set_password(account_creation.password.data)
         db.session.add(user)
         db.session.commit()
-        return redirect('/')
+        return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
 
 #This route points to a button which will send an email.
