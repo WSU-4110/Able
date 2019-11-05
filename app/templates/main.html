@@ -39,6 +39,7 @@
         <input id="pac-input" type="text"
             placeholder="Enter a location">
       </div>
+        <!-- This needs to be taken out and reworked -->
       <div>
         <form action="send_email_button">
            <button type="submit">Send Email</button>
@@ -47,6 +48,7 @@
            <button type="submit">See the Editor Picks</button>
          </form>
       </div>
+        <!-- This needs to be taken out and reworked -->
     </div>
     <div id="map"></div>
     <div id="infowindow-content">
@@ -77,6 +79,7 @@
           zoom: 13
         });
         var card = document.getElementById('pac-card');
+        // We need to capture this part and use it to query the database
         var input = document.getElementById('pac-input');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
