@@ -14,7 +14,7 @@ def main_page():
     return render_template('main.html')
 
 
-@app.route('/write', methods=['GET','POST'])
+@app.route('/write', methods=['GET', 'POST'])
 def write_review():
     new_review = ReviewCreation()
     if new_review.validate_on_submit():
@@ -27,6 +27,7 @@ def write_review():
 
 @app.route('/reviews')
 def reviews():
+    # Fairly sure we don't need to do this in SQLAlchemy since we can interact with the DB entries as objects
     connection = sqlite3.connect("app/able.db")
     crsr = connection.cursor()
     crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
@@ -53,20 +54,23 @@ def registration():
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
 
-#This route points to a button which will send an email.
+# This route points to a button which will send an email.
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
     send.send_email()
     return render_template('main.html')
 
+
 @app.route('/see_editor_picks', methods=['GET', 'POST'])
 def retrieve_editor_picks():
     return render_template('editor-picks.html')
 
+
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
+
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
