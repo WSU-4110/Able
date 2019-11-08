@@ -17,10 +17,12 @@
         <div id="title">
           Autocomplete search
         </div>
+          <!-- This is where I implemented the Strategy Pattern -->
         <div id="type-selector" class="pac-controls">
           <input type="radio" name="type" id="changetype-all" checked="checked">
           <label for="changetype-all">All</label>
 
+            <!-- Users can select Establishments, Addresses, or Geocodes-->
           <input type="radio" name="type" id="changetype-establishment">
           <label for="changetype-establishment">Establishments</label>
 
@@ -98,7 +100,7 @@
 
          var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
          var infoIcon = new google.maps.Marker({
-
+        //Default Location
              position: {lat: 42.354549, lng: -83.0685272},
              map: map,
              icon: iconBase + 'info-i_maps.png'
@@ -106,7 +108,7 @@
 
         // Call setMap() to add custom marker to map;
         marker.setMap(map);
-
+        //Function for Searching with GeoCodes
         //Geolocation starts
         function writeAddressName(latLng) {
         var geocoder = new google.maps.Geocoder();
