@@ -7,6 +7,14 @@ from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation
 
 
+class DBConnection():
+    def __new__(cls, *args, **kwargs):
+        if not hasattr(cls, '_DBConnection'):
+            cls._DBConnection = super(DBConnection, cls).__new__(cls, *args, **kwargs)
+            connection = sqlite3.connect("app/able.db")
+        return cls._DBConnection
+
+
 # Root directory route. This will always be the first page to load.
 @app.route('/')
 def main_page():
@@ -14,7 +22,7 @@ def main_page():
     return render_template('main.html')
 
 
-@app.route('/write', methods=['GET','POST'])
+@app.route('/write', methods=['GET', 'POST'])
 def write_review():
     new_review = ReviewCreation()
     if new_review.validate_on_submit():
@@ -27,15 +35,14 @@ def write_review():
 
 @app.route('/reviews')
 def reviews():
-    connection = sqlite3.connect("app/able.db")
-    crsr = connection.cursor()
+    crsr = DBConnection.connection.cursor()
     crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
     ans = crsr.fetchall()
     for i in ans:
         print(i)
     return render_template('reviews.html')
 
-  
+
 @app.route('/navigation')
 def navigation():
     return render_template('navigation.html')
@@ -53,20 +60,24 @@ def registration():
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
 
-#This route points to a button which will send an email.
+
+# This route points to a button which will send an email.
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
     send.send_email()
     return render_template('main.html')
 
+
 @app.route('/see_editor_picks', methods=['GET', 'POST'])
 def retrieve_editor_picks():
     return render_template('editor-picks.html')
 
+
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
+
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
