@@ -2,7 +2,7 @@
 from app import app, db
 import sqlite3
 from flask import render_template, redirect, url_for
-from app.notifications import Email
+from app.notifications import Receiver
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation
 
@@ -56,13 +56,17 @@ def registration():
 #This route points to a button which will send an email.
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
-    send = Email()
+    send = Receiver()
     send.send_email()
     return render_template('main.html')
 
-@app.route('/see_editor_picks', methods=['GET', 'POST'])
-def retrieve_editor_picks():
-    return render_template('editor-picks.html')
+@app.route('/user_profile', methods=['GET', 'POST'])
+def retrieve_user_profile():
+    return render_template('User Profile.html')
+
+@app.route('/business_owner_profile', methods=['GET', 'POST'])
+def retrieve_business_owner_profile():
+    return render_template('Owner Profile.html')
 
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
