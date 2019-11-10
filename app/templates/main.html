@@ -41,13 +41,19 @@
             placeholder="Enter a location">
       </div>
         <!-- This needs to be taken out and reworked -->
-      <div>
-        <form action="send_email_button">
-           <button type="submit">Send Email</button>
-         </form>
-         <form action="see_editor_picks">
-           <button type="submit">See the Editor Picks</button>
-         </form>
+        <div>
+            <form action="send_email_button">
+                <button type="submit">Send Email</button>
+            </form>
+            <form action="see_editor_picks">
+                <button type="submit">See the Editor Picks</button>
+            </form>
+            <form class="test_form">
+                <p>
+                    {{ form.box.label }}<br>
+                    {{ form.box }}
+                </p>
+            </form>
       </div>
         <!-- This needs to be taken out and reworked -->
     </div>
@@ -81,7 +87,8 @@
         });
         var card = document.getElementById('pac-card');
         // We need to capture this part and use it to query the database
-        var input = document.getElementById('pac-input');
+          // This should be capturing the form input data as someone types it, but the map is currently broken
+        var input = document.getElementsByClassName('test_form');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
 

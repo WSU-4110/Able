@@ -27,3 +27,7 @@ class AccountCreation(FlaskForm):
 class ReviewCreation(FlaskForm):
     review = TextAreaField('Review', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+
+class TestForm(FlaskForm):
+    box = StringField('Text to take from')
