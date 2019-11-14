@@ -110,7 +110,5 @@ AutocompleteDirectionsHandler.prototype.route = function() {
           window.alert('Directions request failed due to ' + status);
         }
       });
-
-
 };
 
