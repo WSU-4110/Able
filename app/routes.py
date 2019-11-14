@@ -53,21 +53,6 @@ def registration():
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
 
-#This route points to a button which will send an email.
-@app.route('/send_email_button', methods=['GET', 'POST'])
-def sending_emails():
-    send = Receiver()
-    send.send_email()
-    return render_template('main.html')
-
-@app.route('/user_profile', methods=['GET', 'POST'])
-def retrieve_user_profile():
-    return render_template('User Profile.html')
-
-@app.route('/business_owner_profile', methods=['GET', 'POST'])
-def retrieve_business_owner_profile():
-    return render_template('Owner Profile.html')
-
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
