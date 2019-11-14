@@ -84,35 +84,65 @@
 
         //Custom marker example
 
-         var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+         var iconBase = 'http://maps.google.com/mapfiles/kml/shapes';
+
          var infoIcon = new google.maps.Marker({
 
-             //Welcome Center
-             position: {lat: 42.354549, lng: -83.0685272},
+             // (1) Hopcat
+             position: {lat: 42.352685, lng: -83.061536},
              map: map,
-             icon: iconBase + 'info-i_maps.png'
+             icon: iconBase + 'bars.png',
 
-             //MOCAD
-             position: {lat: 42.351727, lng: -83.068068},
+             // (2) Majestic Theater
+             position: {lat: 42.351673, lng: -83.060076},
              map: map,
-             icon: iconBase + 'info-i_maps.png'
+             icon: iconBase + 'movies.png',
 
-             //Bottom Line Coffee House
-             position: {lat: 42.3518942, lng: -83.0694069},
+             // (3) Welcome Center
+             position: {lat: 42.357242, lng: -83.065131},
              map: map,
-             icon: iconBase + 'info-i_maps.png'
+             icon: iconBase + 'info-i.png',
 
-             //Dunkin Donuts @ WSU
-             position: {lat: 42.3528895, lng: -83.081451},
+             // (4) La Pita
+             position: {lat: 42.357240, lng: -83.066208},
              map: map,
-             icon: iconBase + 'info-i_maps.png'
+             icon: iconBase + 'snack_bar.png',
 
-             //Selden Standard
-             position: {lat: 42.3468692, lng: -83.0682454},
+             // (5) Eastern Market
+             position: {lat: 42.347381, lng: -83.040503},
              map: map,
-             icon: iconBase + 'info-i_maps.png'
+             icon: iconBase + 'schools.png',
+
+             // (6) Detroit Opera House
+             position: {lat: 42.336469, lng: -83.048638},
+             map: map,
+             icon: iconBase + 'arts.png',
+
+             // (7) LCA
+             position: {lat: 42.341234, lng: -83.055048},
+             map: map,
+             icon: iconBase + 'play.png',
+
+             // (8) Whole Foods
+             position: {lat: 42.348660, lng: -83.056608},
+             map: map,
+             icon: iconBase + 'convenience.png',
+
+             // (9) MoCAD
+             position: {lat: 42.353882, lng: -83.061874},
+             map: map,
+             icon: iconBase + 'triangle.png',
+
+             // (10) Selden Standard
+             position: {lat: 42.348054, lng: -83.064964},
+             map: map,
+             icon: iconBase + 'dining.png',
+
+             // (11) Parc
+             position: {lat: 42.331824, lng: -83.046851},
+             map: map,
+             icon: iconBase + 'dining.png',
   });
-
         // Call setMap() to add custom marker to map;
         marker.setMap(map);
 
