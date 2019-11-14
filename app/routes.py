@@ -11,8 +11,8 @@ from app.forms import AccountCreation, ReviewCreation, TestForm
 @app.route('/')
 def main_page():
     # Telling it what to render out. When it gets more complex, we will be passing HTML templates within these functions
-    new_form = TestForm()
-    return render_template('main.html', form=new_form)
+    new_test_form = TestForm()
+    return render_template('main.html', form=new_test_form)
 
 
 @app.route('/write', methods=['GET', 'POST'])
