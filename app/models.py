@@ -1,18 +1,11 @@
 # This will hold our DB table schema
-from app import db
+from app import db, login
 # UserMixin is a class that provides all the functionality of flask_login in one class
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
 # We'll need to eventually design the whole Database, but this is fine enough now for the User table
-class Base(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-
-    def __repr__(self):
-        return 'ID: {}'.format(self.id)
-
-
 class User(UserMixin, db.Model):
     username = db.Column(db.VARCHAR(30), nullable=False)
     email = db.Column(db.VARCHAR(120), nullable=False)
@@ -23,6 +16,11 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 class Reviews(db.Model):
