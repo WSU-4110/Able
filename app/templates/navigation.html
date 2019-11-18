@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
-
+<html>
   <head>
-    <title>Place Autocomplete and Directions</title>
+      <title>{{ title }}</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
   </head>
 
   <body>
   <div id="top">
-        <h1>Able </h1>
+        <h1>{{ title }} </h1>
         <span id="menuicon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
   </div>
 
@@ -47,3 +47,4 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaqk8sjXFvzcEsAeXlKMJpOWX5m7a_o1k&libraries=places&callback=initMap"
           async defer></script>
   </body>
+</html>
