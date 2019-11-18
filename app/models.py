@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # We'll need to eventually design the whole Database, but this is fine enough now for the User table
 class User(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.VARCHAR(30), nullable=False)
     email = db.Column(db.VARCHAR(120), nullable=False)
     password = db.Column(db.VARCHAR(150), nullable=False)
@@ -24,6 +25,7 @@ def load_user(id):
 
 
 class Reviews(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     location = db.Column(db.Integer, db.ForeignKey('location.id'))
     user = db.Column(db.Integer, db.ForeignKey('user.id'))
     rating = db.Column(db.Integer)
@@ -31,6 +33,7 @@ class Reviews(db.Model):
 
 
 class Location(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     address = db.Column(db.VARCHAR(500), nullable=False)
     type = db.Column(db.VARCHAR(300), nullable=False)
     braille = db.Column(db.BOOLEAN, nullable=False, default=0)
