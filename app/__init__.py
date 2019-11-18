@@ -3,6 +3,7 @@ from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_login import LoginManager
 import os
 
 
@@ -12,6 +13,8 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 # Bootstrap CSS
 Bootstrap(app)
+# Initiating library for login management
+login = LoginManager()
 # technically we should separate this out, but for a class project it doesn't matter
 app.config['SECRET_KEY'] = 'how-many-penguins-exist-in-michigan'
 # On two lines to follow PEP8 standards
