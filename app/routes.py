@@ -56,7 +56,7 @@ def registration():
     return render_template('account-creation.html', form=account_creation)
 
 # This is not how we should be doing this and needs to be reworked to fit in the Flask conventions
-# This route points to a button which will send an email.
+# This route points to a button which will send an email
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
