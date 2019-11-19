@@ -2,6 +2,7 @@
 import sqlite3
 from app import app, db
 from flask import render_template, redirect, url_for
+from flask_login import current_user, login_user
 from app.notifications import Email
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation
@@ -47,12 +48,17 @@ def navigation():
 def registration():
     account_creation = AccountCreation()
     if account_creation.validate_on_submit():
+        # Creating the account in the DB if all info the form is good
         user = User(username=account_creation.username.data, email=account_creation.email.data)
         user.set_password(account_creation.password.data)
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('/'))
-    return render_template('account-creation.html', form=account_creation)
+        # Once someone creates their account, they're automatically logged in
+        user = User.query.filter_by(username=account_creation.username.data).first()
+        login_user(user)
+        return redirect(url_for('/register'))
+    return render_template('account-creation.html', form=account_creation, )
+
 
 # This is not how we should be doing this and needs to be reworked to fit in the Flask conventions
 # This route points to a button which will send an email

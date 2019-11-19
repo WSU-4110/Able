@@ -14,7 +14,7 @@ app = Flask(__name__)
 # Bootstrap CSS
 Bootstrap(app)
 # Initiating library for login management
-login = LoginManager()
+login = LoginManager(app)
 # technically we should separate this out, but for a class project it doesn't matter
 app.config['SECRET_KEY'] = 'how-many-penguins-exist-in-michigan'
 # On two lines to follow PEP8 standards

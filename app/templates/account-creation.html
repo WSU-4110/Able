@@ -5,6 +5,14 @@
         <h1>
             Account Creation
         </h1>
+            {% if current_user.is_authenticated %}
+            <h1>
+                Currently logged in as: {{ current_user.username }}
+            </h1>
+        {% endif %}
+        {% if current_user.is_anonymous %}
+            <h1>Not Currently logged in</h1>
+        {% endif %}
         <form class="register_form" method="POST" action=''>
             {{ form.csrf_token }}
             <p>
