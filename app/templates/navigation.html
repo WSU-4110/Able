@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
 <html>
   <head>
@@ -31,20 +33,10 @@
 
   <div id="map"></div>
 
-  <div id="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/">Home</a>
-        <a href="#">About</a>
-        <a href="#">Profile</a>
-        <a href="#">Navigation</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Business Profile</a>
-        <a href="#">Change Language</a>
-  </div>
-
   <script type=text/javascript src="{{
     url_for('static', filename='js/nav.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaqk8sjXFvzcEsAeXlKMJpOWX5m7a_o1k&libraries=places&callback=initMap"
           async defer></script>
   </body>
 </html>
+ {%  endblock %}
