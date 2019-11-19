@@ -60,7 +60,7 @@ def retrieve_user_profile():
     review_display.display_database_reviews()
     return render_template('User Profile.html')
 
-@app.route('/return_to_main', methods=['GET', 'POST'])
+@app.route('/return_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
 

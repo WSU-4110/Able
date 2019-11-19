@@ -48,8 +48,4 @@ class ReviewDisplay():
     def display_database_reviews(self):
         engine = create_engine('sqlite:///:memory:', echo=True)
         session = sessionmaker(bind=engine)
-        temp_user = User(name='ed', fullname='Ed Jones', nickname='edsnickname')
-        session.add(temp_user)
-        for instance in session.query(User).order_by(User.id):
-            ...
-            print(instance.name, instance.fullname)
+        records = session.query(Customer).filter(Customer.first_name == 'Carl').all()
