@@ -1,11 +1,13 @@
+{% extends "base.html"%}
+
 <!DOCTYPE html>
 <html>
+{% block content %}
   <head>
-      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
     <title>Able</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <div id="top">
@@ -56,18 +58,6 @@
       <img src="" width="16" height="16" id="place-icon">
       <span id="place-name"  class="title"></span><br>
       <span id="place-address"></span>
-    </div>
-    <div id="sidenav">
-
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/">Home</a>
-        <a href="#">About</a>
-        <a href="#">Profile</a>
-        <a href="navigation">Navigation</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Business Profile</a>
-        <a href="#">Change Language</a>
-
     </div>
     <script>
       // This example requires the Places library. Include the libraries=places
@@ -260,3 +250,4 @@
         async defer></script>
   </body>
 </html>
+{% endblock %}

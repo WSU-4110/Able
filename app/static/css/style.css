@@ -7,43 +7,10 @@
         body{ margin: 20px; }
         h1 { font-size: 1.5em; margin: 10px; }
 
-        /****** Style Star Rating Widget *****/
 
-        .rating {
-          border: none;
-          float: left;
-        }
 
-        .rating > input { display: none; }
-        .rating > label:before {
-          margin: 5px;
-          font-size: 1.25em;
-          font-family: FontAwesome;
-          display: inline-block;
-          content: "\f005";
-        }
 
-        .rating > .half:before {
-          content: "\f089";
-          position: absolute;
-        }
-
-        .rating > label {
-          color: #ddd;
-         float: right;
-        }
-
-        /***** CSS Magic to Highlight Stars on Hover *****/
-
-        .rating > input:checked ~ label, /* show gold star when clicked */
-        .rating:not(:checked) > label:hover, /* hover current star */
-        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-        .rating > input:checked + label:hover, /* hover current star when changing rating */
-        .rating > input:checked ~ label:hover,
-        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-        .rating > input:checked ~ label:hover ~ label { color: #FFED85; }
-      #map {
+        #map {
         height: 90%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -51,8 +18,6 @@
         height: 100%;
         margin: 0;
         padding: 0;
-          background-color: darkslategray;
-          font: "Josefin Sans";
       }
       h1{
           text-align: center;
@@ -121,44 +86,6 @@
       }
       body {
           font-family: "Josefin Sans", sans-serif;
-      }
-      #sidenav {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 2;
-          top: 0;
-          left: 0;
-          background-color: #111;
-          overflow-x: hidden;
-          transition: 0.5s;
-          padding-top: 60px;
-      }
-      #sidenav a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #818181;
-          display: block;
-          transition: 0.3s;
-      }
-      #sidenav a:hover {
-          color: #f1f1f1;
-      }
-      #sidenav .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-      }
-      #menuicon{
-        position: absolute;
-          z-index: 1;
-            top: 0;
-          color: #f1f1f1;
-          float: left;
-          margin-left:5px;
       }
         #top{
             position:relative;

@@ -1,10 +1,23 @@
 <!-- The main template file that extends the Bootstrap file, making it work -->
 {% extends 'bootstrap/base.html' %}
+{% block navbar %}
+    <nav class = "navbar navbar-inverse navbar-fixed-top">
+        <div class = "container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Able</a>
+            </div>
+            <ul class = "nav navbar-nav">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="navigation">Navigation</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Business Profile</a></li>
+                <li><a href="#">Change Language</a></li>
+            </ul>
+        </div>
+    </nav>
 
+{% endblock %}
 <!-- The main template that all others using 'extends base.html' will inherit from -->
 {% block content %}
-    <div class="container">
-        {# application content needs to be provided in the app_content block #}
-        {% block app_content %}{% endblock %}
-    </div>
 {% endblock %}
