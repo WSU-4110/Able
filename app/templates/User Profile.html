@@ -1,41 +1,35 @@
+{% extends "base.html" %}
+
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" type="text/css" href="C:/Users/Dennis/PycharmProjects/Able/app/static/css/owner_page.css">
-<head>
-    <meta charset="UTF-8">
-    <title>User Profile</title>
-</head>
-<body>
-    <h1>These are the Top Editor Picks:</h1><br>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>User Profile</title>
+    </head>
+    <body>
+        <h1>These are the Top Editor Picks:</h1><br>
 
-    <p>This is a Rite Aid Pharmacy by Wayne State University in Detroit.</p>
-    <p>Location: 4612 Woodward Ave Detroit MI 48201</p>
-    <a href="https://locations.riteaid.com/locations/mi/detroit/4612-woodward-avenue.html">Rite Aid Pharmacy</a>
+        <p>This is a Rite Aid Pharmacy by Wayne State University in Detroit.</p>
+        <p>Location: 4612 Woodward Ave Detroit MI 48201</p>
+        <a href="https://locations.riteaid.com/locations/mi/detroit/4612-woodward-avenue.html">Rite Aid Pharmacy</a>
 
-    <p>This is a Barnes and Nobles by Wayne State University in Detroit.</p>
-    <p>Location: 82 West Warren Street Detroit MI 48202</p>
-    <a href="https://www.barnesandnoble.com/">Barnes and Nobles</a>
+        <p>This is a Barnes and Nobles by Wayne State University in Detroit.</p>
+        <p>Location: 82 West Warren Street Detroit MI 48202</p>
+        <a href="https://www.barnesandnoble.com/">Barnes and Nobles</a>
 
-    <p>This is a Shake Shack in the Heart of Detroit.</p>
-    <p>Location: 660 Woodward Ave Detroit MI 48226</p>
-    <a href="https://www.shakeshack.com/location/downtown-detroit-mi">Shake Shack</a>
+        <p>This is a Shake Shack in the Heart of Detroit.</p>
+        <p>Location: 660 Woodward Ave Detroit MI 48226</p>
+        <a href="https://www.shakeshack.com/location/downtown-detroit-mi">Shake Shack</a>
 
-    <br><br><br>
-    <button type="button">Click Me!</button>
-    <br><br><br>
-
-
-    <h2>
-        Click here to see the top stores by editor choice:
-    </h2>
-
-     <form action="send_email_button">
-       <button name="send_email" type="submit">Send Email</button>
-     </form>
-
-
-    <form action="return_to_main">
-        <button type="submit">Return to Menu</button>
-    </form>
-</body>
+        <h2>
+            Write your reviews for locations you have visited below!
+        </h2>
+        <form>
+            <br>Enter your review here:<br>
+            <input type="text" name="your_review"><br>
+        </form>
+        <form action="return_to_main">
+            <button type="submit">Return to Menu</button>
+        </form>
+    </body>
 </html>

@@ -37,6 +37,7 @@ class AccountCreation(FlaskForm):
             except:
                 print('Something went wrong...')
 
+
 class ReviewCreation(FlaskForm):
     review = TextAreaField('Review', validators=[DataRequired()])
     submit = SubmitField('Submit')
