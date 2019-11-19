@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 
+
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by the db_file
@@ -46,7 +47,10 @@ def select_task_by_priority(conn, priority):
     for row in rows:
         print(row)
 
-    database = r"app\able.db"
+
+"""
+def main():
+    database = r"C:\sqlite\db\pythonsqlite.db"
 
     # create a database connection
     conn = create_connection(database)
@@ -56,3 +60,8 @@ def select_task_by_priority(conn, priority):
 
         print("2. Query all tasks")
         select_all_tasks(conn)
+
+
+if __name__ == '__main__':
+    main()
+"""
