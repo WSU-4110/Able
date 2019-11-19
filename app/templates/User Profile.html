@@ -2,7 +2,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>User Profile</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <div class="title_display">
+            <title>User Profile</title>
+        </div>
     </head>
     <body>
         <h1>These are the Top Editor Picks:</h1><br>
@@ -22,12 +25,14 @@
         <h2>
             Write your reviews for locations you have visited below!
         </h2>
+
         <form>
             <br>Enter your review here:<br>
-            <input type="text" name="your_review"><br>
+            <input type="text" name="your_review"><br><br>
         </form>
-        <form action="return_to_main">
+
+        <div class="return_to_menu">
             <button type="submit">Return to Menu</button>
-        </form>
+        </div>
     </body>
 </html>
