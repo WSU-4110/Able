@@ -29,7 +29,7 @@ def write_review():
 def reviews():
     connection = sqlite3.connect("app/able.db")
     crsr = connection.cursor()
-    crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
+    crsr.execute("SELECT * FROM reviews WHERE LOCATION='reviews'")
     ans = crsr.fetchall()
     for i in ans:
         print(i)
@@ -52,13 +52,6 @@ def registration():
         db.session.commit()
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
-
-#This route points to a button which will send an email.
-@app.route('/send_email_button', methods=['GET', 'POST'])
-def sending_emails():
-    send = Receiver()
-    send.send_email()
-    return render_template('main.html')
 
 @app.route('/user_profile', methods=['GET', 'POST'])
 def retrieve_user_profile():
