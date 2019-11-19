@@ -35,10 +35,12 @@
           <label for="use-strict-bounds">Strict Bounds</label>
         </div>
       </div>
+        <!-- The div of the data we need to capture or work with somehow -->
       <div id="pac-container">
         <input id="pac-input" type="text"
             placeholder="Enter a location">
       </div>
+        <!-- This needs to be taken out and reworked -->
       <div>
         <form action="user_profile">
            <button type="submit">Go to Owners Account</button>
@@ -47,6 +49,7 @@
            <button type="submit">Go to Business Owners Account</button>
          </form>
       </div>
+        <!-- This needs to be taken out and reworked -->
     </div>
     <div id="map"></div>
     <div id="infowindow-content">
@@ -77,6 +80,7 @@
           zoom: 13
         });
         var card = document.getElementById('pac-card');
+        // We need to capture this part and use it to query the database
         var input = document.getElementById('pac-input');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
