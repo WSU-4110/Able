@@ -54,10 +54,11 @@ def registration():
         db.session.add(user)
         db.session.commit()
         # Once someone creates their account, they're automatically logged in
+        # Have to query the DB to login rather than being able to use data from registration form
         user = User.query.filter_by(username=account_creation.username.data).first()
         login_user(user)
         return redirect(url_for('/register'))
-    return render_template('account-creation.html', form=account_creation, )
+    return render_template('account-creation.html', form=account_creation)
 
 
 # This is not how we should be doing this and needs to be reworked to fit in the Flask conventions
