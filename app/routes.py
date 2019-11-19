@@ -34,10 +34,12 @@ def reviews():
         print(i)
     return render_template('reviews.html')
 
-  
+
 @app.route('/navigation')
 def navigation():
-    return render_template('navigation.html')
+    return render_template('navigation.html', title='Able')
+
+
 
 
 # Account creation page route
