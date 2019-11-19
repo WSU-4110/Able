@@ -2,7 +2,6 @@
 from app import app, db
 import sqlite3
 from flask import render_template, redirect, url_for
-from app.notifications import Receiver
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation
 
@@ -52,6 +51,10 @@ def registration():
         db.session.commit()
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
+
+@app.route('/user_profile', methods=['GET', 'POST'])
+def retrieve_user_profile():
+    return render_template('User Profile.html')
 
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
