@@ -64,10 +64,6 @@ def sending_emails():
 def retrieve_user_profile():
     return render_template('User Profile.html')
 
-@app.route('/business_owner_profile', methods=['GET', 'POST'])
-def retrieve_business_owner_profile():
-    return render_template('Owner Profile.html')
-
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
