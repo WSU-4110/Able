@@ -4,6 +4,8 @@ from wtforms import StringField, PasswordField, SubmitField,TextAreaField
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from app.models import User
 import smtplib
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
 from app.models import Reviews
 
 
@@ -41,3 +43,13 @@ class AccountCreation(FlaskForm):
 class ReviewCreation(FlaskForm):
     review = TextAreaField('Review', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class ReviewDisplay():
+    def display_database_reviews(self):
+        engine = create_engine('sqlite:///:memory:', echo=True)
+        session = sessionmaker(bind=engine)
+        temp_user = User(name='ed', fullname='Ed Jones', nickname='edsnickname')
+        session.add(temp_user)
+        for instance in session.query(User).order_by(User.id):
+            ...
+            print(instance.name, instance.fullname)
