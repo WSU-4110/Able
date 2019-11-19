@@ -29,7 +29,7 @@ def write_review():
 def reviews():
     connection = sqlite3.connect("app/able.db")
     crsr = connection.cursor()
-    crsr.execute("SELECT * FROM reviews WHERE LOCATION='reviews'")
+    crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
     ans = crsr.fetchall()
     for i in ans:
         print(i)

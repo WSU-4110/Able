@@ -40,7 +40,7 @@ def select_task_by_priority(conn, priority):
     :return:
     """
     cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks WHERE priority=?", (priority,))
+    cur.execute("SELECT * FROM reviews WHERE priority='reviews'", (priority,))
 
     rows = cur.fetchall()
 
