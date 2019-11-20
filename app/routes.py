@@ -23,7 +23,7 @@ def contact():
             flash('All fields are required.')
             return render_template('contact.html', form=form)
         else:
-            return 'Thank you for your question!'
+            return render_template('contactFeedback.html', form=form)
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
 

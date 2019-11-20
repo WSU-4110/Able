@@ -121,6 +121,7 @@
       }
       body {
           font-family: "Josefin Sans", sans-serif;
+          padding-top: 70px;
       }
       #sidenav {
           height: 100%;
