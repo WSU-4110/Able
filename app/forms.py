@@ -39,11 +39,6 @@ class AccountCreation(FlaskForm):
             except:
                 print('Something went wrong...')
 
-
-class ReviewCreation(FlaskForm):
-    review = TextAreaField('Review', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
 class ReviewDisplay():
     def display_database_reviews(self):
         engine = create_engine('sqlite:///:memory:', echo=True)
