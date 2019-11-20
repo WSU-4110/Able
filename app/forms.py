@@ -7,10 +7,10 @@ from app.models import Reviews
 
 
 class Contact(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired()])
-    subject = StringField('Subject', validators=[DataRequired()])
-    message = StringField('Message', validators=[DataRequired()])
+    name = StringField('Name', validators=[DataRequired("Please enter your name.")])
+    email = StringField('Email', validators=[DataRequired("Please enter your email address.")])
+    subject = StringField('Subject', validators=[DataRequired("Please enter a subject.")])
+    message = StringField('Message', validators=[DataRequired("Please enter a message.")])
     submit = SubmitField("Send")
 
 

@@ -19,10 +19,14 @@ def contact():
     form = Contact()
 
     if request.method == 'POST':
-        return 'Form posted.'
-
+        if not form.validate():
+            flash('All fields are required.')
+            return render_template('contact.html', form=form)
+        else:
+            return 'Thank you for your question!'
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
+
 
 @app.route('/write', methods=['GET', 'POST'])
 def write_review():
