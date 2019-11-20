@@ -27,13 +27,9 @@ def write_review():
 
 @app.route('/reviews')
 def reviews():
-    connection = sqlite3.connect("app/able.db")
-    crsr = connection.cursor()
-    crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
-    ans = crsr.fetchall()
-    for i in ans:
-        print(i)
-    return render_template('reviews.html')
+    reviews = Reviews.query.filter_by(location=1)
+
+    return render_template('reviews.html', reviews=reviews)
 
   
 @app.route('/navigation')
