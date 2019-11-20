@@ -2,9 +2,8 @@
 import sqlite3
 from app import app, db
 from flask import render_template, redirect, url_for
-from app.notifications import Receiver
 from app.models import User, Reviews
-from app.forms import AccountCreation, ReviewCreation
+from app.forms import AccountCreation, ReviewCreation, ReviewDisplay
 
 
 # Root directory route. This will always be the first page to load.
@@ -35,10 +34,12 @@ def reviews():
         print(i)
     return render_template('reviews.html')
 
-  
+
 @app.route('/navigation')
 def navigation():
-    return render_template('navigation.html')
+    return render_template('navigation.html', title='Able')
+
+
 
 
 # Account creation page route
@@ -55,9 +56,11 @@ def registration():
 
 @app.route('/user_profile', methods=['GET', 'POST'])
 def retrieve_user_profile():
+    review_display = ReviewDisplay()
+    review_display.display_database_reviews()
     return render_template('User Profile.html')
 
-@app.route('/return_to_main', methods=['GET', 'POST'])
+@app.route('/return_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
 
