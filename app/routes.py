@@ -1,10 +1,10 @@
 # This will hold most of the logic for the pages in the app
 import sqlite3
 from app import app, db
-from flask import render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request, flash
 from app.notifications import Email
 from app.models import User, Reviews
-from app.forms import AccountCreation, ReviewCreation
+from app.forms import AccountCreation, ReviewCreation, Contact
 
 
 # Root directory route. This will always be the first page to load.
@@ -14,7 +14,17 @@ def main_page():
     return render_template('main.html')
 
 
-@app.route('/write', methods=['GET','POST'])
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = Contact()
+
+    if request.method == 'POST':
+        return 'Form posted.'
+
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
+
+@app.route('/write', methods=['GET', 'POST'])
 def write_review():
     new_review = ReviewCreation()
     if new_review.validate_on_submit():
@@ -41,8 +51,6 @@ def navigation():
     return render_template('navigation.html', title='Able')
 
 
-
-
 # Account creation page route
 @app.route('/register', methods=['GET', 'POST'])
 def registration():
@@ -55,20 +63,24 @@ def registration():
         return redirect(url_for('/'))
     return render_template('account-creation.html', form=account_creation)
 
-#This route points to a button which will send an email.
+
+# This route points to a button which will send an email.
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
     send = Email()
     send.send_email()
     return render_template('main.html')
 
+
 @app.route('/see_editor_picks', methods=['GET', 'POST'])
 def retrieve_editor_picks():
     return render_template('editor-picks.html')
 
+
 @app.route('/return_to_main', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
+
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run

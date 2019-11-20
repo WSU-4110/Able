@@ -1,9 +1,17 @@
 # This will hold any and all form templates
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField,TextAreaField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, validators, Form
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from app.models import User
 from app.models import Reviews
+
+
+class Contact(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    subject = StringField('Subject', validators=[DataRequired()])
+    message = StringField('Message', validators=[DataRequired()])
+    submit = SubmitField("Send")
 
 
 class AccountCreation(FlaskForm):
