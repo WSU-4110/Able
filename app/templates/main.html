@@ -11,10 +11,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
-    <div id="top">
-        <h1>Able </h1>
-        <span id="menuicon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
-    </div>
+
     <div class="pac-card" id="pac-card">
       <div>
         <div id="title">
@@ -219,6 +216,16 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaqk8sjXFvzcEsAeXlKMJpOWX5m7a_o1k&libraries=places&callback=initMap"
         async defer></script>
+<div class="event__search__floater">
+<div class="search__anchor">
+  <form id="event-search-form" action="get">
+        <input type="text" class="search__bar" placeholder="Search Event">
+    <input class="search__submit" type="submit">
+    <div class="search__toggler"></div>
+  </form>
+
+  </div>
+</div>
   </body>
 </html>
 {% endblock %}
