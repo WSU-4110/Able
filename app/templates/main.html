@@ -10,7 +10,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
-
+    <div id="top">
+        {% if current_user.is_authenticated %}
+        <h1>Able - Hi, {{ current_user.username }}</h1>
+        {% endif %}
+        {% if current_user.is_anonymous %}
+        <h1>Able</h1>
+        {% endif %}
+        <span id="menuicon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    </div>
     <div class="pac-card" id="pac-card">
       <div>
         <div id="title">
@@ -40,13 +48,13 @@
             placeholder="Enter a location">
       </div>
         <!-- This needs to be taken out and reworked -->
-      <div>
-        <form action="send_email_button">
-           <button type="submit">Send Email</button>
-         </form>
-         <form action="see_editor_picks">
-           <button type="submit">See the Editor Picks</button>
-         </form>
+        <div>
+            <form action="send_email_button">
+                <button type="submit">Send Email</button>
+            </form>
+            <form action="see_editor_picks">
+                <button type="submit">See the Editor Picks</button>
+            </form>
       </div>
         <!-- This needs to be taken out and reworked -->
     </div>
@@ -67,7 +75,8 @@
         });
         var card = document.getElementById('pac-card');
         // We need to capture this part and use it to query the database
-        var input = document.getElementById('pac-input');
+          // This should be capturing the form input data as someone types it, but the map is currently broken
+        var input = document.getElementsByClassName('test_form');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
