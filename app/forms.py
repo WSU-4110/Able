@@ -1,6 +1,6 @@
 # This will hold any and all form templates
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, TextAreaField, validators, Form
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from app.models import User
 from app.models import Reviews

@@ -1,7 +1,7 @@
 # This will hold most of the logic for the pages in the app
 import sqlite3
 from app import app, db
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import render_template, redirect, url_for, request, flash
 from app.notifications import Email
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation, Contact
