@@ -98,62 +98,77 @@
         // bounds option in the request.
         autocomplete.bindTo('bounds', map);
 
-//Use maps marker library for assigning specific images to each location
- var iconBase = 'http://maps.google.com/mapfiles/kml/shapes';
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        //(1) Hopcat
+        var hopcat = new google.maps.Marker({
+            position: {lat: 42.352685, lng: -83.061536},
+            map: map,
+            icon: image,
+            title: 'Hopcat'
+        });
+        //InfoWindow (Hopcat)
+        //(2) Majestic Theater
+        var majestic = new google.maps.Marker({
+            position: {lat: 42.351673, lng: -83.060076},
+            map: map,
+            icon: image
+        });
+        //(3) Welcome Center
+        var welcome = new google.maps.Marker({
+            position: {lat: 42.357242, lng: -83.065131},
+            map: map,
+            icon: image
+        });
+        //(4) La Pita
+        var pita = new google.maps.Marker({
+            position: {lat: 42.357240, lng: -83.066208},
+            map: map,
+            icon: image
+        });
+        //(5) Eastern Market
+        var market = new google.maps.Marker({
+            position: {lat: 42.347381, lng: -83.040503},
+            map: map,
+            icon: image
+        });
+        //(6) Detroit Opera House
+         var opera = new google.maps.Marker({
+            position: {lat: 42.336469, lng: -83.048638},
+            map: map,
+            icon: image
+        });
+         //(7) LCA
+         var arena = new google.maps.Marker({
+            position: {lat: 42.341234, lng: -83.055048},
+            map: map,
+            icon: image
+        });
+         //(8) Whole Foods
+         var grocery = new google.maps.Marker({
+            position: {lat: 42.348660, lng: -83.056608},
+            map: map,
+            icon: image
+        });
+         //(9) MoCAD
+         var museum = new google.maps.Marker({
+            position: {lat: 42.353882, lng: -83.061874},
+            map: map,
+            icon: image
+        });
+         //(10) Selden Standard
+         var restaurant = new google.maps.Marker({
+            position: {lat: 42.348054, lng: -83.064964},
+            map: map,
+            icon: image
+        });
+         //(11) Parc
+         var restaurant = new google.maps.Marker({
+            position: {lat: 42.331824, lng: -83.064964},
+            map: map,
+            icon: image
+        });
 
-  const infoIcon = new google.maps.Marker({
-
-      // (1) Hopcat
-      position: {lat: 42.352685, lng: -83.061536},
-      map: map,
-      icon: iconBase + 'bars.png',
-
-      // (2) Majestic Theater
-      position: {lat: 42.351673, lng: -83.060076},
-      map: map,
-      icon: iconBase + 'movies.png',
-
-      // (3) Welcome Center
-      position: {lat: 42.357242, lng: -83.065131},
-      map: map,
-      icon: iconBase + 'info-i.png',
-
-      // (4) La Pita
-      position: {lat: 42.357240, lng: -83.066208},
-      map: map,
-      icon: iconBase + 'snack_bar.png',
-
-      // (5) Eastern Market
-      position: {lat: 42.347381, lng: -83.040503},
-      map: map,
-      icon: iconBase + 'schools.png',
-
-      // (6) Detroit Opera House
-      position: {lat: 42.336469, lng: -83.048638},
-      map: map,
-      icon: iconBase + 'arts.png',
-
-      // (7) LCA
-      position: {lat: 42.341234, lng: -83.055048},
-      map: map,
-      icon: iconBase + 'play.png',
-
-      // (8) Whole Foods
-      position: {lat: 42.348660, lng: -83.056608},
-      map: map,
-      icon: iconBase + 'convenience.png',
-
-      // (9) MoCAD
-      position: {lat: 42.353882, lng: -83.061874},
-      map: map,
-      icon: iconBase + 'triangle.png',
-
-      // (10) Selden Standard
-      position: {lat: 42.348054, lng: -83.064964},
-      map: map,
-      icon: iconBase + 'dining.png',
-
-      // (11) Parc
+      /* (11) Parc
       position: {lat: 42.331824, lng: -83.046851},
       map: map,
       icon: iconBase + 'dining.png',
@@ -245,7 +260,7 @@
       });
 
       // Call setMap() to add custom marker to map;
-         marker.setMap(map);
+         marker.setMap(map); */
 
         //Geolocation starts
         function writeAddressName(latLng) {
