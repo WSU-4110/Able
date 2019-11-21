@@ -27,13 +27,12 @@ def write_review():
 
 @app.route('/reviews')
 def reviews():
-    connection = sqlite3.connect("app/able.db")
-    crsr = connection.cursor()
-    crsr.execute("SELECT * FROM reviews WHERE LOCATION='id'")
-    ans = crsr.fetchall()
-    for i in ans:
-        print(i)
-    return render_template('reviews.html')
+    reviews = Reviews.query.filter_by(location=1)
+    avg = 0
+    for i in reviews:
+        avg = avg + i.rating
+    avg = avg/reviews.count()
+    return render_template('reviews.html', reviews=reviews, average=avg)
 
 
 @app.route('/navigation')

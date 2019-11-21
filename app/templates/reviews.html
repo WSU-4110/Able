@@ -1,31 +1,157 @@
+{% extends "base.html" %}
+<!------ Include the above in your HEAD tag ---------->
+
 <!DOCTYPE html>
+{% block content %}
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <meta charset="UTF-8">
-    <title>Reviews</title>
-</head>
-<body>
-    <div id="heading">
-        <div id="column 1">
-        <h1 id = "location">Location name</h1>
-            <fieldset class="rating">
-                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-            </fieldset>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="https://kit.fontawesome.com/5fe86f7e65.js" crossorigin="anonymous"></script>
+
+        <script>
+            const starTotal = 5;
+            rating = {{ average }}
+            const starPercentage = (rating / starTotal) * 100;
+            const starPercentageRounded = '${(Math.round(starPercentage / 10) * 10)}%';
+            document.querySelector(".stars-inner").style.width = starPercentageRounded
+        </script>
+    </head>
+
+
+  <body>
+    <div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+				<div class="rating-block">
+					<h4>Average user rating</h4>
+					<h2 class="bold padding-bottom-7">{{ average }} <small>/ 5</small></h2>
+                    <div class="stars-outer">
+                        <div class="stars-inner"></div>
+                    </div>
+				</div>
+                <form action="/write">
+                    <button class = "review-button btn btn-primary">Write a Review!</button>
+                </form>
+			</div>
+            <div class="col-sm-3">
+                <div class = "rating-breakdown">
+                    <h4>Rating breakdown</h4>
+                    <div class="pull-left">
+                        <div class="pull-left" style="width:35px; line-height:1;">
+                            <div style="height:9px; margin:5px 0;">5 <span class="glyphicon glyphicon-star"></span></div>
+                        </div>
+                        <div class="pull-left" style="width:170px;">
+                            <div class="progress" style="height:9px; margin:8px 0;">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="5" style="width: 1000%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="pull-right" style="margin-left:10px;">1</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="pull-left" style="width:35px; line-height:1;">
+                            <div style="height:9px; margin:5px 0;">4 <span class="glyphicon glyphicon-star"></span></div>
+                        </div>
+                        <div class="pull-left" style="width:170px;">
+                            <div class="progress" style="height:9px; margin:8px 0;">
+                              <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="4" aria-valuemin="0" aria-valuemax="5" style="width: 80%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="pull-right" style="margin-left:10px;">1</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="pull-left" style="width:35px; line-height:1;">
+                            <div style="height:9px; margin:5px 0;">3 <span class="glyphicon glyphicon-star"></span></div>
+                        </div>
+                        <div class="pull-left" style="width:170px;">
+                            <div class="progress" style="height:9px; margin:8px 0;">
+                              <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="5" style="width: 60%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="pull-right" style="margin-left:10px;">0</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="pull-left" style="width:35px; line-height:1;">
+                            <div style="height:9px; margin:5px 0;">2 <span class="glyphicon glyphicon-star"></span></div>
+                        </div>
+                        <div class="pull-left" style="width:170px;">
+                            <div class="progress" style="height:9px; margin:8px 0;">
+                              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="5" style="width: 40%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="pull-right" style="margin-left:10px;">0</div>
+                    </div>
+                    <div class="pull-left">
+                        <div class="pull-left" style="width:35px; line-height:1;">
+                            <div style="height:9px; margin:5px 0;">1 <span class="glyphicon glyphicon-star"></span></div>
+                        </div>
+                        <div class="pull-left" style="width:170px;">
+                            <div class="progress" style="height:9px; margin:8px 0;">
+                              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="5" style="width: 20%">
+                                <span class="sr-only">80% Complete (danger)</span>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="pull-right" style="margin-left:10px;">0</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id = "column 2">
-        <button a href=""> Write a Review! </button>
-        </div>
-    </div>
-    <div id = reviews>{{ show }}</div>
-</body>
+        <div class="row">
+			<div class="col-sm-7">
+				<hr/>
+				<div class="review-block">
+                    {% for i in reviews %}
+                        <div class="row">
+                            <div class="col-sm-3">
+
+							    <div class="review-block-name"><a href="#">{{i.user}}</a></div>
+							    <div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+
+						</div>
+						    <div class="col-sm-9">
+							<div class="review-block-rate">
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-warning btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+								<button type="button" class="btn btn-default btn-grey btn-xs" aria-label="Left Align">
+								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</button>
+							</div>
+							<div class="review-block-title">Review</div>
+							<div class="review-block-description">{{ i.review }}</div>
+						</div>
+					    </div>
+					    <hr/>
+                    {% endfor %}
+
+				</div>
+			</div>
+		</div>
+    </div> <!-- /container -->
+  </body>
+{% endblock %}
 </html>
