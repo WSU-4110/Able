@@ -1,11 +1,13 @@
+{% extends "base.html"%}
+
 <!DOCTYPE html>
 <html>
+{% block content %}
   <head>
-      <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-      <title>Able</title>
+    <title>Able</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <div id="top">
@@ -62,23 +64,10 @@
       <span id="place-name"  class="title"></span><br>
       <span id="place-address"></span>
     </div>
-    <div id="sidenav">
-
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/">Home</a>
-        <a href="#">About</a>
-        <a href="#">Profile</a>
-        <a href="navigation">Navigation</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Business Profile</a>
-        <a href="#">Change Language</a>
-
-    </div>
     <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 42.3314, lng: -83.0458},
@@ -90,33 +79,23 @@
         var input = document.getElementsByClassName('test_form');
         var types = document.getElementById('type-selector');
         var strictBounds = document.getElementById('strict-bounds-selector');
-
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
-
-        var autocomplete = new google.maps.places.Autocomplete(input);
-
-
         map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
         var autocomplete = new google.maps.places.Autocomplete(input);
-
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
+        var autocomplete = new google.maps.places.Autocomplete(input);
         // Bind the map's bounds (viewport) property to the autocomplete object,
         // so that the autocomplete requests use the current map bounds for the
         // bounds option in the request.
         autocomplete.bindTo('bounds', map);
-
         //Custom marker example
-
          var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
          var infoIcon = new google.maps.Marker({
-
              position: {lat: 42.354549, lng: -83.0685272},
              map: map,
              icon: iconBase + 'info-i_maps.png'
   });
-
         // Call setMap() to add custom marker to map;
         marker.setMap(map);
-
         //Geolocation starts
         function writeAddressName(latLng) {
         var geocoder = new google.maps.Geocoder();
@@ -130,18 +109,15 @@
             document.getElementById("error").innerHTML += "Unable to retrieve your address" + "<br />";
         });
       }
-
       function geolocationSuccess(position) {
         var userLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
         // Write the formatted address
         writeAddressName(userLatLng);
-
         var myOptions = {
             zoom : 16,
             center : userLatLng,
             mapTypeId : google.maps.MapTypeId.ROADMAP
         };
-
          // Draw the map
         var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
         // Place the marker
@@ -159,14 +135,11 @@
           strokeColor: '#0000FF',
           strokeOpacity: 1.0
               });
-
         mapObject.fitBounds(circle.getBounds());
       }
-
       function geolocationError(positionError) {
         document.getElementById("error").innerHTML += "Error: " + positionError.message + "<br />";
       }
-
       function geolocateUser() {
         // If the browser supports the Geolocation API
         if (navigator.geolocation)
@@ -180,15 +153,11 @@
         else
           document.getElementById("error").innerHTML += "Your browser doesn't support the Geolocation API";
       }
-
       window.onload = geolocateUser;
-
         //Geolocation ends
-
         // Set the data fields to return when the user selects a place.
         autocomplete.setFields(
             ['address_components', 'geometry', 'icon', 'name']);
-
         var infowindow = new google.maps.InfoWindow();
         var infowindowContent = document.getElementById('infowindow-content');
         infowindow.setContent(infowindowContent);
@@ -196,7 +165,6 @@
           map: map,
           anchorPoint: new google.maps.Point(0, -29)
         });
-
         autocomplete.addListener('place_changed', function() {
           infowindow.close();
           marker.setVisible(false);
@@ -207,7 +175,6 @@
             window.alert("No details available for input: '" + place.name + "'");
             return;
           }
-
           // If the place has a geometry, then present it on a map.
           if (place.geometry.viewport) {
             map.fitBounds(place.geometry.viewport);
@@ -217,7 +184,6 @@
           }
           marker.setPosition(place.geometry.location);
           marker.setVisible(true);
-
           var address = '';
           if (place.address_components) {
             address = [
@@ -226,13 +192,11 @@
               (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
           }
-
           infowindowContent.children['place-icon'].src = place.icon;
           infowindowContent.children['place-name'].textContent = place.name;
           infowindowContent.children['place-address'].textContent = address;
           infowindow.open(map, marker);
         });
-
         // Sets a listener on a radio button to change the filter type on Places
         // Autocomplete.
         function setupClickListener(id, types) {
@@ -241,28 +205,25 @@
             autocomplete.setTypes(types);
           });
         }
-
         setupClickListener('changetype-all', []);
         setupClickListener('changetype-address', ['address']);
         setupClickListener('changetype-establishment', ['establishment']);
         setupClickListener('changetype-geocode', ['geocode']);
-
         document.getElementById('use-strict-bounds')
             .addEventListener('click', function() {
               console.log('Checkbox clicked! New state=' + this.checked);
               autocomplete.setOptions({strictBounds: this.checked});
             });
       }
-
       function openNav(){
                 document.getElementById("sidenav").style.width="250px";
             }
       function closeNav(){
                 document.getElementById("sidenav").style.width="0";
             }
-
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaqk8sjXFvzcEsAeXlKMJpOWX5m7a_o1k&libraries=places&callback=initMap"
         async defer></script>
   </body>
 </html>
+{% endblock %}

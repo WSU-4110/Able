@@ -1,16 +1,23 @@
 <!-- The main template file that extends the Bootstrap file, making it work -->
-<html>
-    <body>
-        <div id="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="/">Home</a>
-        <a href="#">About</a>
-        <a href="#">Profile</a>
-        <a href="#">Navigation</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Business Profile</a>
-        <a href="#">Change Language</a>
+{% extends 'bootstrap/base.html' %}
+{% block navbar %}
+    <nav class = "navbar navbar-inverse navbar-fixed-top">
+        <div class = "container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Able</a>
+            </div>
+            <ul class = "nav navbar-nav">
+                <li><a href="about">About</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="navigation">Navigation</a></li>
+                <li><a href="contact">Contact Us</a></li>
+                <li><a href="#">Business Profile</a></li>
+                <li><a href="#">Change Language</a></li>
+            </ul>
         </div>
-        {%  block content %}{% endblock %}
-    </body>
-</html>
+    </nav>
+
+{% endblock %}
+<!-- The main template that all others using 'extends base.html' will inherit from -->
+{% block content %}
+{% endblock %}

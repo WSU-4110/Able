@@ -1,11 +1,11 @@
 # This will hold most of the logic for the pages in the app
 import sqlite3
 from app import app, db
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request, flash
 from flask_login import current_user, login_user, logout_user
 from app.notifications import Email
 from app.models import User, Reviews
-from app.forms import AccountCreation, ReviewCreation, Login
+from app.forms import AccountCreation, ReviewCreation, Login, Contact
 
 
 # Root directory route. This will always be the first page to load.
@@ -16,6 +16,26 @@ from app.forms import AccountCreation, ReviewCreation, Login
 def main_page():
     # Telling it what to render out. When it gets more complex, we will be passing HTML templates within these functions
     return render_template('main.html')
+
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    form = Contact()
+
+    if request.method == 'POST':
+        if not form.validate():
+            flash('All fields are required.')
+            return render_template('contact.html', form=form)
+        else:
+            return render_template('contactFeedback.html', form=form)
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 
 
 @app.route('/write', methods=['GET', 'POST'])
@@ -46,8 +66,6 @@ def navigation():
     return render_template('navigation.html', title='Able')
 
 
-
-
 # Account creation page route
 @app.route('/register', methods=['GET', 'POST'])
 def registration():
@@ -64,6 +82,7 @@ def registration():
         login_user(user)
         return redirect(url_for('main_page'))
     return render_template('account-creation.html', form=account_creation)
+
 
 
 # Another page for users to login at. Will redirect to main if already logged in.
@@ -97,10 +116,12 @@ def sending_emails():
     return render_template('main.html')
 
 
+
 # Same as the send_email_button, this needs to be reworked
 @app.route('/see_editor_picks', methods=['GET', 'POST'])
 def retrieve_editor_picks():
     return render_template('editor-picks.html')
+
 
 
 # I'm not sure where this is implemented? In the side nav?
