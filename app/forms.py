@@ -24,6 +24,12 @@ class AccountCreation(FlaskForm):
             raise ValidationError('Please use a different email address.')
 
 
+class Login(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Login')
+
+
 class ReviewCreation(FlaskForm):
     review = TextAreaField('Review', validators=[DataRequired()])
     submit = SubmitField('Submit')
