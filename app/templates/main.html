@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 {% block content %}
+    <!-- These are needed because the navbar overwrites the content somehow and I don't know how to fix it -->
+    <br><br>
   <head>
     <title>Able</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -17,7 +19,6 @@
         {% if current_user.is_anonymous %}
         <h1>Able</h1>
         {% endif %}
-        <span id="menuicon" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
     </div>
     <div class="pac-card" id="pac-card">
       <div>
@@ -47,16 +48,6 @@
         <input id="pac-input" type="text"
             placeholder="Enter a location">
       </div>
-        <!-- This needs to be taken out and reworked -->
-        <div>
-            <form action="send_email_button">
-                <button type="submit">Send Email</button>
-            </form>
-            <form action="see_editor_picks">
-                <button type="submit">See the Editor Picks</button>
-            </form>
-      </div>
-        <!-- This needs to be taken out and reworked -->
     </div>
     <div id="map"></div>
     <div id="infowindow-content">

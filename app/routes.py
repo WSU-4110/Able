@@ -37,7 +37,6 @@ def about():
     return render_template('about.html')
 
 
-
 @app.route('/write', methods=['GET', 'POST'])
 def write_review():
     new_review = ReviewCreation()
@@ -82,7 +81,6 @@ def registration():
         login_user(user)
         return redirect(url_for('main_page'))
     return render_template('account-creation.html', form=account_creation)
-
 
 
 # Another page for users to login at. Will redirect to main if already logged in.

@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
-{% block app_content %}
-    {% if current_user.is_authenticated %}
+{% block content %}
     <div>
+    <!-- These are needed because the navbar overwrites the content somehow and I don't know how to fix it -->
+    <br><br>
         <h1>
             Login Page
         </h1>
