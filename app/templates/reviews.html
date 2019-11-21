@@ -13,8 +13,14 @@
         <meta name="author" content="">
         <link rel="icon" href="favicon.ico">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-        <script>
+        <script src="https://kit.fontawesome.com/5fe86f7e65.js" crossorigin="anonymous"></script>
 
+        <script>
+            const starTotal = 5;
+            rating = {{ average }}
+            const starPercentage = (rating / starTotal) * 100;
+            const starPercentageRounded = '${(Math.round(starPercentage / 10) * 10)}%';
+            document.querySelector(".stars-inner").style.width = starPercentageRounded
         </script>
     </head>
 
@@ -28,8 +34,11 @@
 					<h2 class="bold padding-bottom-7">{{ average }} <small>/ 5</small></h2>
                     <div class="stars-outer">
                         <div class="stars-inner"></div>
-        <           </div>
+                    </div>
 				</div>
+                <form action="/write">
+                    <button class = "review-button btn btn-primary">Write a Review!</button>
+                </form>
 			</div>
             <div class="col-sm-3">
                 <div class = "rating-breakdown">
@@ -132,7 +141,7 @@
 								  <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
 								</button>
 							</div>
-							<div class="review-block-title">this was nice in buy</div>
+							<div class="review-block-title">Review</div>
 							<div class="review-block-description">{{ i.review }}</div>
 						</div>
 					    </div>
