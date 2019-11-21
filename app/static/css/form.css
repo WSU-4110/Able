@@ -13,6 +13,7 @@ body{
 p{
   font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
   font-size: 1.5em;
+  padding-top: 70px;
 
 }
 form label {

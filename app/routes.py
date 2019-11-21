@@ -21,13 +21,12 @@ def main_page():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = Contact()
-
     if request.method == 'POST':
         if not form.validate():
             flash('All fields are required.')
             return render_template('contact.html', form=form)
         else:
-            return render_template('contactFeedback.html', form=form)
+            return redirect(url_for('main_page'))
     elif request.method == 'GET':
         return render_template('contact.html', form=form)
 
