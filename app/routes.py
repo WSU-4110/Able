@@ -2,7 +2,7 @@
 import sqlite3
 from app import app, db
 from flask import render_template, redirect, url_for
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user
 from app.notifications import Email
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation, Login
@@ -77,6 +77,13 @@ def login():
         login_user(user)
         return redirect(url_for('index'))
     return render_template('login.html', form=login_form)
+
+
+# Route holds functionality for logging out.
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('registration'))
 
 
 # This is not how we should be doing this and needs to be reworked to fit in the Flask conventions
