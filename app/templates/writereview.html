@@ -1,23 +1,26 @@
 {% extends "base.html" %}
-{% block app_content %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Write a Review</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 <h1>Write a Review!</h1>
-<form method="POST" action=''>
-            {{ form.csrf_token }}
-            <p>
-                {{form.review.label}}<br>
-                {{form.review}}
-            </p>
-            <p>
-                {{form.submit()}}
-            </p>
-        </form>
+<form method="POST" action='' class = "form-horizontal" class="was-invalidated">
+    <div class = "form-group reviewform">
+        {{ form.csrf_token }}
+
+            <label class="control-label">{{form.review.label}}<br></label>
+            <input class="form-control" id ={{form.review}}
+
+        <p>
+            {{form.submit()}}
+        </p>
+    </div>
+</form>
 </body>
 </html>
 {% endblock %}

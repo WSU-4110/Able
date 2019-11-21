@@ -1,5 +1,6 @@
   {% extends "base.html" %}
 
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
@@ -8,7 +9,10 @@
         h1 { font-size: 1.5em; margin: 10px; }
 
 
-
+        .review-button {
+            margin-top: 70px;
+            background-color: #560726;
+        }
 
         #map {
         height: 100%;
@@ -95,7 +99,7 @@
           }
           body {
               padding-top: 70px;
-              background-color: #075d6e;
+              background-color: #197e92b8;
           }
           .btn-grey{
             background-color:#D8D8D8;
@@ -147,6 +151,7 @@
         .review-block-description{
             font-size:13px;
         }
+
         body {
   margin-top: 50px;
   font-family: sans-serif;
@@ -212,4 +217,8 @@ table th {
 }
 .attribution:hover {
   color: #1fa67a;
+}
+
+.reviewform{
+    padding:30px;
 }
