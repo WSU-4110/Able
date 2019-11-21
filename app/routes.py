@@ -21,7 +21,7 @@ def write_review():
         review = Reviews(review=new_review.review.data, location=1, user='gh')
         db.session.add(review)
         db.session.commit()
-        return redirect('/')
+        #return redirect('/')
     return render_template('writereview.html', form=new_review)
 
 
@@ -63,6 +63,11 @@ def retrieve_user_profile():
 @app.route('/return_to_menu', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
+
+@app.route('/show_reviews', methods=['GET', 'POST'])
+def list_all_reviews():
+    all_reviews = Reviews.query
+    return render_template('User Profile.html', reviews=all_reviews)
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run

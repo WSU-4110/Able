@@ -37,8 +37,15 @@ body {
     text-align: center;
     font-size: 22px;
 }
+
+.review_entry_formatting
+{
+    text-align: center;
+}
+
 .review_entry_box
 {
+    padding: 15px 32px;
     text-align: center;
     font-size: 26px;
 }
@@ -47,6 +54,18 @@ body {
 {
     text-align: center;
     font-size: 22px;
+}
+
+.retrieved_reviews
+{
+    text-align: center;
+    font-size: 22px;
+}
+
+.review_borders
+{
+    border-style: dashed;
+    border-color: black;
 }
 
 .return_menu_button

@@ -29,17 +29,23 @@
             <h2>
                 Write your reviews for locations you have visited below!
             </h2>
-        </div>
-        <div class="review_entry_box">
-            <form>
-                <br>Enter your review here:<br>
-                <input type="text" name="your_review" size="150"><br><br>
-            </form>
         </div><br>
+        <div class="review_entry_formatting">
+            <div class="review_entry_box">
+                <a href="write"><button type="button">Click here to submit a review!</button></a><br>
+            </div><br><br>
+        </div>
+        <div class="retrieved_reviews">
+            {% for i in reviews %}
+                <div class="review_borders">
+                    <br>{{ i.review }}<br><br>
+                </div><br><br>
+            {% endfor %}
+        </div><br><br><br>
         <div class="return_to_menu_class">
             <div class="return_menu_button">
                 <a href='return_to_menu'> <button type="button">Return to Menu</button> </a>
             </div>
-        </div>
+        </div><br><br><br>
     </body>
 </html>
