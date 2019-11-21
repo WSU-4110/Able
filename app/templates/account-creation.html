@@ -1,31 +1,56 @@
 {% extends "base.html" %}
 
-{% block app_content %}
+{% block content %}
     <div>
+    <!-- These are needed because the navbar overwrites the content somehow and I don't know how to fix it -->
+    <br><br>
         <h1>
             Account Creation
         </h1>
-        <form method="POST" action=''>
+        {% if current_user.is_authenticated %}
+            <h2>
+                Currently logged in as: {{ current_user.username }}
+            </h2>
+            <p>
+                Click here to <a href="{{ url_for('logout') }}">logout</a>
+            </p>
+        {% endif %}
+        {% if current_user.is_anonymous %}
+            <h2>Not Currently logged in</h2>
+        <form class="register_form" method="POST" action=''>
             {{ form.csrf_token }}
             <p>
                 {{form.username.label}}<br>
-                {{form.username}}
+                {{form.username}}<br>
+                {% for error in form.username.errors %}
+                {{ error }}
+                {% endfor %}
             </p>
             <p>
                 {{ form.email.label }}<br>
-                {{ form.email }}
+                {{ form.email }}<br>
+                {% for error in form.email.errors %}
+                {{ error }}
+                {% endfor %}
             </p>
             <p>
                 {{form.password.label}}<br>
-                {{form.password}}
+                {{form.password}}<br>
+                {% for error in form.password.errors %}
+                {{ error }}
+                {% endfor %}
             </p>
             <p>
                 {{form.password2.label}}<br>
-                {{form.password2}}
+                {{form.password2}}<br>
+                {% for error in form.password2.errors %}
+                {{ error }}
+                {% endfor %}
             </p>
             <p>
                 {{form.submit()}}
             </p>
         </form>
+        {% endif %}
     </div>
 {% endblock %}
