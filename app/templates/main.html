@@ -62,28 +62,28 @@
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 42.3314, lng: -83.0458},
-          zoom: 13
-        });
-        var card = document.getElementById('pac-card');
-        // We need to capture this part and use it to query the database
-        var input = document.getElementById('pac-input');
-        var types = document.getElementById('type-selector');
-        var strictBounds = document.getElementById('strict-bounds-selector');
+          var map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 42.3314, lng: -83.0458},
+              zoom: 13
+          });
+          var card = document.getElementById('pac-card');
+          // We need to capture this part and use it to query the database
+          var input = document.getElementById('pac-input');
+          var types = document.getElementById('type-selector');
+          var strictBounds = document.getElementById('strict-bounds-selector');
 
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
+          map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
 
-        var autocomplete = new google.maps.places.Autocomplete(input);
+          var autocomplete = new google.maps.places.Autocomplete(input);
 
 
-        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
-        var autocomplete = new google.maps.places.Autocomplete(input);
+          map.controls[google.maps.ControlPosition.TOP_RIGHT].push(card);
+          var autocomplete = new google.maps.places.Autocomplete(input);
 
-        // Bind the map's bounds (viewport) property to the autocomplete object,
-        // so that the autocomplete requests use the current map bounds for the
-        // bounds option in the request.
-        autocomplete.bindTo('bounds', map);
+          // Bind the map's bounds (viewport) property to the autocomplete object,
+          // so that the autocomplete requests use the current map bounds for the
+          // bounds option in the request.
+          autocomplete.bindTo('bounds', map);
 
         //Custom marker example
 
@@ -317,13 +317,6 @@
               autocomplete.setOptions({strictBounds: this.checked});
             });
       }
-
-      function openNav(){
-                document.getElementById("sidenav").style.width="250px";
-            }
-      function closeNav(){
-                document.getElementById("sidenav").style.width="0";
-            }
 
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaqk8sjXFvzcEsAeXlKMJpOWX5m7a_o1k&libraries=places&callback=initMap"
