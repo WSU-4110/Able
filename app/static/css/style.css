@@ -99,22 +99,6 @@
         font-size: 13px;
         font-weight: 300;
       }
-      .return_menu {
-            background-color: #4caf50; /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .title_display
-        {
-            background-color: #4caf50; /* Green */
-            border: none;
-            color: white;
-            text-align: center;
-        }
       #pac-input {
         background-color: #fff;
         font-family: Roboto;
