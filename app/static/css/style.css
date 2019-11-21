@@ -152,6 +152,11 @@
             font-size:13px;
         }
 
+        body {
+  margin-top: 50px;
+  font-family: sans-serif;
+  background: #f1f1f1;
+}
 
 table {
   margin: 0 auto;
@@ -213,6 +218,7 @@ table th {
 .attribution:hover {
   color: #1fa67a;
 }
+
 .reviewform{
     padding:30px;
 }
