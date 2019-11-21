@@ -34,10 +34,12 @@ def reviews():
     avg = avg/reviews.count()
     return render_template('reviews.html', reviews=reviews, average=avg)
 
-  
+
 @app.route('/navigation')
 def navigation():
-    return render_template('navigation.html')
+    return render_template('navigation.html', title='Able')
+
+
 
 
 # Account creation page route
