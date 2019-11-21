@@ -98,18 +98,154 @@
         // bounds option in the request.
         autocomplete.bindTo('bounds', map);
 
-        //Custom marker example
+//Use maps marker library for assigning specific images to each location
+ var iconBase = 'http://maps.google.com/mapfiles/kml/shapes';
 
-         var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-         var infoIcon = new google.maps.Marker({
+  const infoIcon = new google.maps.Marker({
 
-             position: {lat: 42.354549, lng: -83.0685272},
-             map: map,
-             icon: iconBase + 'info-i_maps.png'
+      // (1) Hopcat
+      position: {lat: 42.352685, lng: -83.061536},
+      map: map,
+      icon: iconBase + 'bars.png',
+
+      // (2) Majestic Theater
+      position: {lat: 42.351673, lng: -83.060076},
+      map: map,
+      icon: iconBase + 'movies.png',
+
+      // (3) Welcome Center
+      position: {lat: 42.357242, lng: -83.065131},
+      map: map,
+      icon: iconBase + 'info-i.png',
+
+      // (4) La Pita
+      position: {lat: 42.357240, lng: -83.066208},
+      map: map,
+      icon: iconBase + 'snack_bar.png',
+
+      // (5) Eastern Market
+      position: {lat: 42.347381, lng: -83.040503},
+      map: map,
+      icon: iconBase + 'schools.png',
+
+      // (6) Detroit Opera House
+      position: {lat: 42.336469, lng: -83.048638},
+      map: map,
+      icon: iconBase + 'arts.png',
+
+      // (7) LCA
+      position: {lat: 42.341234, lng: -83.055048},
+      map: map,
+      icon: iconBase + 'play.png',
+
+      // (8) Whole Foods
+      position: {lat: 42.348660, lng: -83.056608},
+      map: map,
+      icon: iconBase + 'convenience.png',
+
+      // (9) MoCAD
+      position: {lat: 42.353882, lng: -83.061874},
+      map: map,
+      icon: iconBase + 'triangle.png',
+
+      // (10) Selden Standard
+      position: {lat: 42.348054, lng: -83.064964},
+      map: map,
+      icon: iconBase + 'dining.png',
+
+      // (11) Parc
+      position: {lat: 42.331824, lng: -83.046851},
+      map: map,
+      icon: iconBase + 'dining.png',
   });
 
-        // Call setMap() to add custom marker to map;
-        marker.setMap(map);
+//infoWindow additions for 10 locations
+
+  //(1) Hopcat info string
+      var contentString1 = '<div id="content"><h1>' + 'Hopcat' +
+          '</h1><p>Accessibility features: wheelchair accessible ramp.</p></div>'
+  //(2) Majestic Theater info string
+      var contentString2 = '<div id="content"><h1>' + 'Majestic Theater' +
+          '</h1><p>Accessibility features: no wheelchair accessible ramp (only stairs at entry).</p></div>'
+  //(3) Majestic Theater info string
+      var contentString3 = '<div id="content"><h1>' + 'WSU Welcome Center' +
+          '</h1><p>Accessibility features: wheelchair accessible, elevators, wheelchair accessible restroom.</p></div>'
+  //(4) La Pita info display
+      var contentString4 = '<div id="content"><h1>' + 'La Pita (Midtown Detroit)' +
+          '</h1><p>Accessibility features: wheelchair accessible.</p></div>'
+  //(5) Eastern Market Shed 2 info string
+      var contentString5 = '<div id="content"><h1>' + 'Eastern Market Shed 2' +
+          '</h1><p>Accessibility features: wheelchair accessible (outdoor area).</p></div>'
+  //(6) Detroit Opera House info string
+      var contentString6 = '<div id="content"><h1>' + 'The Detroit Opera House' +
+          '</h1><p>Accessibility features: wheelchair accessible, hearing assistance, elevator access.</p></div>'
+  //(7) Little Caesar's Arena info string
+      var contentString7 = '<div id="content"><h1>' + 'LCA (Arena)' +
+          '</h1><p>Accessibility features: wheelchair accessible, elevator access.</p></div>'
+  //(8) Whole Foods info string
+      var contentString8 = '<div id="content"><h1>' + 'Whole Foods (Midtown Detroit)' +
+          '</h1><p>Accessibility features: wheelchair accessible.</p></div>'
+  //(9) MoCAD info string
+      var contentString9 = '<div id="content"><h1>' + 'MoCAD (Museum of Contemporary Art)' +
+          '</h1><p>Accessibility features: wheelchair accessible, exhibit audio assistance.</p></div>'
+  //(10) Selden Standard info string
+      var contentString10 = '<div id="content"><h1>' + 'Selden Standard (Midtown Detroit)' +
+          '</h1><p>Accessibility features: wheelchair accessible.</p></div>'
+  //(11) Parc info string
+      var contentString11 = '<div id="content"><h1>' + 'Parc' +
+          '</h1><p>Accessibility features: not wheelchair accessible.</p></div>'
+
+  //infoWindow creation
+
+      var infoWindow = new google.maps.InfoWindow({
+      //Hopcat
+          content: contentString1,
+          position: {lat: 42.352685, lng: -83.061536},
+          maxWidth: 200,
+      //Majestic Theater
+          content: contentString1,
+          position: {lat: 42.351673, lng: -83.060076},
+          maxWidth: 200,
+      //Welcome Center
+          content: contentString3,
+          position: {lat: 42.357242, lng: -83.065131},
+          maxWidth: 200,
+      //La Pita
+          content: contentString4,
+          position: {lat: 42.357240, lng: -83.066208},
+          maxWidth: 200,
+      //Eastern Market
+          content: contentString5,
+          position: {lat: 42.347381, lng: -83.040503},
+          maxWidth: 200,
+      //Detroit Opera House
+          content: contentString6,
+          position: {lat: 42.336469, lng: -83.048638},
+          maxWidth: 200,
+      //LCA
+          content: contentString7,
+          position: {lat: 42.341234, lng: -83.055048},
+          maxWidth: 200,
+      //Whole Foods Midtown
+          content: contentString8,
+          position: {lat: 42.348660, lng: -83.056608},
+          maxWidth: 200,
+      //MoCAD
+          content: contentString9,
+          position: {lat: 42.353882, lng: -83.061874},
+          maxWidth: 200,
+      //Selden Standard
+          content: contentString10,
+          position: {lat: 42.348054, lng: -83.064964},
+          maxWidth: 200,
+      //Parc
+          content: contentString11,
+          position: {lat: 42.331824, lng: -83.046851},
+          maxWidth: 200,
+      });
+
+      // Call setMap() to add custom marker to map;
+         marker.setMap(map);
 
         //Geolocation starts
         function writeAddressName(latLng) {
