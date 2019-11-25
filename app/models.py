@@ -18,7 +18,13 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    # Method to debug by printing out results of creation when calling the object alone
+    # No point in printing the password as it will be hashed
+    def __repr__(self):
+        return 'ID: {}, User: {}, Email: {}'.format(self.id, self.username, self.email)
 
+
+# Helper function for login functionality
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
@@ -31,6 +37,11 @@ class Reviews(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     review = db.Column(db.TEXT())
 
+    # Method to debug by printing out results of creation when calling the object alone
+    def __repr__(self):
+        return 'ID: {}, Location: {}, User: {}, Rating: {}, Review: {}'.format(self.id, self.location, self.user,
+                                                                               self.rating, self.review)
+
 
 class Location(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -39,6 +50,11 @@ class Location(db.Model):
     braille = db.Column(db.BOOLEAN, nullable=False, default=0)
     wheelchair = db.Column(db.BOOLEAN, nullable=False, default=0)
     closed_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
-    audio_captions = db.Column(db.BOOLEAN, nullable=False, default=0)
     quiet_space = db.Column(db.BOOLEAN, nullable=False, default=0)
     parking = db.Column(db.BOOLEAN, nullable=False, default=0)
+
+    # Method to debug by printing out results of creation when calling the object alone
+    def __repr__(self):
+        return 'ID: {}, Address: {}, Braille: {}, Wheelchair: {}, CC: {},' \
+               'Quiet Space: {}, Parking: {}'.format(self.id, self.address, self.braille, self.wheelchair,
+                                                     self.closed_captions, self.quiet_space, self.parking)
