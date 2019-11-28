@@ -16,7 +16,7 @@ class FlaskTest(unittest.TestCase):
          db.drop_all()
          db.create_all()
 
-     # Teardown segment runs after each test is executed
+     # Teardown segment for after each test is executed
      def tearDown(self):
          pass
 
