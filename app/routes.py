@@ -50,10 +50,10 @@ def write_review():
 @app.route('/reviews')
 def reviews():
     reviews = Reviews.query.filter_by(location=1)
-    avg = 0
+    avg = 1
     for i in reviews:
         avg = avg + i.rating
-    avg = avg/reviews.count()
+    # avg = avg/reviews.count()
     return render_template('reviews.html', reviews=reviews, average=avg)
 
 
