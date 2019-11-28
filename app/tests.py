@@ -3,6 +3,7 @@ from .models import *
 import os
 import unittest
 
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 class FLaskTest(unittest.TestCase):
 
@@ -49,8 +50,8 @@ class FLaskTest(unittest.TestCase):
         self.assertEqual(response.status_code,200)
 
     #Testing Reviews
-    def test_reviews_page(self):
-        response=self.app.get('/reviews', follow_redirects= True)
+    def test_write_page(self):
+        response=self.app.get('/write', follow_redirects= True)
         self.assertEqual(response.status_code,200)
 
 
