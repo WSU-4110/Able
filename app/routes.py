@@ -58,6 +58,7 @@ def reviews():
 
 
 @app.route('/navigation')
+@app.route('/navigationBack')
 def navigation():
     return render_template('navigation.html', title='Able')
 
