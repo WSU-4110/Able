@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+    <!-- These are needed because the navbar overwrites the content somehow and I don't know how to fix it -->
+    <br><br>
+        <h1>
+            Login Page
+        </h1>
+        <form class="login_form" method="POST" action=''>
+            {{ form.csrf_token }}
+            <p>
+                {{form.username.label}}<br>
+                {{form.username}}<br>
+                {% for error in form.username.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{form.password.label}}<br>
+                {{form.password}}<br>
+                {% for error in form.password.errors %}
+                {{ error }}
+                {% endfor %}
+            </p>
+            <p>
+                {{form.submit()}}
+            </p>
+        </form>
+    </div>
+    <div>
+        <p>New User? <a href="{{ url_for('registration') }}">Click to Register!</a></p>
+    </div>
+{% endblock %}

@@ -1,5 +1,6 @@
   {% extends "base.html" %}
 
+
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
 
@@ -7,52 +8,20 @@
         body{ margin: 20px; }
         h1 { font-size: 1.5em; margin: 10px; }
 
-        /****** Style Star Rating Widget *****/
 
-        .rating {
-          border: none;
-          float: left;
+        .review-button {
+            margin-top: 70px;
+            background-color: #560726;
         }
 
-        .rating > input { display: none; }
-        .rating > label:before {
-          margin: 5px;
-          font-size: 1.25em;
-          font-family: FontAwesome;
-          display: inline-block;
-          content: "\f005";
-        }
-
-        .rating > .half:before {
-          content: "\f089";
-          position: absolute;
-        }
-
-        .rating > label {
-          color: #ddd;
-         float: right;
-        }
-
-        /***** CSS Magic to Highlight Stars on Hover *****/
-
-        .rating > input:checked ~ label, /* show gold star when clicked */
-        .rating:not(:checked) > label:hover, /* hover current star */
-        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-        .rating > input:checked + label:hover, /* hover current star when changing rating */
-        .rating > input:checked ~ label:hover,
-        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-        .rating > input:checked ~ label:hover ~ label { color: #FFED85; }
-      #map {
-        height: 90%;
+        #map {
+        height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-          background-color: darkslategray;
-          font: "Josefin Sans";
       }
       h1{
           text-align: center;
@@ -119,47 +88,127 @@
         font-weight: 500;
         padding: 6px 12px;
       }
-      body {
-          font-family: "Josefin Sans", sans-serif;
-      }
-      #sidenav {
-          height: 100%;
-          width: 0;
-          position: fixed;
-          z-index: 2;
-          top: 0;
-          left: 0;
-          background-color: #111;
-          overflow-x: hidden;
-          transition: 0.5s;
-          padding-top: 60px;
-      }
-      #sidenav a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #818181;
-          display: block;
-          transition: 0.3s;
-      }
-      #sidenav a:hover {
-          color: #f1f1f1;
-      }
-      #sidenav .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-      }
-      #menuicon{
-        position: absolute;
-          z-index: 1;
-            top: 0;
-          color: #f1f1f1;
-          float: left;
-          margin-left:5px;
-      }
         #top{
             position:relative;
         }
+        .container{
+              padding-top: 0;
+          }
+          body {
+              background-color: #197e92b8;
+          }
+          .btn-grey{
+            background-color:#D8D8D8;
+            color:#FFF;
+        }
+        .rating-block{
+            background-color:#FAFAFA;
+            border:1px solid #EFEFEF;
+            padding:15px 15px 20px 15px;
+            border-radius:3px;
+        }
+        .rating-breakdown{
+            background-color:#FAFAFA;
+            border:1px solid #EFEFEF;
+            padding:15px 200px 330px 15px;
+            border-radius:3px;
+
+        }
+        .bold{
+            font-weight:700;
+        }
+        .padding-bottom-7{
+            padding-bottom:7px;
+        }
+
+        .review-block{
+            background-color:#FAFAFA;
+            border:1px solid #EFEFEF;
+            padding:15px;
+            border-radius:3px;
+            margin-bottom:15px;
+        }
+        .review-block-name{
+            font-size:12px;
+            margin:10px 0;
+        }
+        .review-block-date{
+            font-size:12px;
+        }
+        .review-block-rate{
+            font-size:13px;
+            margin-bottom:15px;
+        }
+        .review-block-title{
+            font-size:15px;
+            font-weight:700;
+            margin-bottom:10px;
+        }
+        .review-block-description{
+            font-size:13px;
+        }
+
+table {
+  margin: 0 auto;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid #d4d4d4;
+  font-size: 20px;
+  background: #fff;
+}
+
+table th,
+table tr:nth-child(2n+2) {
+  background: #e7e7e7;
+}
+
+table th,
+table td {
+  padding: 20px 50px;
+}
+
+table th {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
+}
+
+.attribution {
+  font-size: 12px;
+  color: #444;
+  text-decoration: none;
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: -1;
+}
+.attribution:hover {
+  color: #1fa67a;
+}
+
+.reviewform{
+    padding:30px;
+}

@@ -1,13 +1,14 @@
 import smtplib
 
 
-class Email():
+class Email:
     # This is the gmail username and password we will use for our tests. It is a safe account with no affiliation
     # to anyone.
     username = 'able4110group@gmail.com'  # create the gmail username
     password = 'able12345'  # create the gmail password
 
-    def send_email(self):
+    @staticmethod
+    def send_email():
         # Have a try-catch statement in case of a failure to send the message
         try:
             server = smtplib.SMTP_SSL('smtp.gmail.com', 465)  # Establishes a connection with the gmail server
