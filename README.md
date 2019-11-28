@@ -12,6 +12,7 @@ Required Software and Libraries
 -Flask-SQLAlchemy
 -Flask-WTF
 -Flask-Migrate
+-Flask-Login
 ```
 
 Installing
@@ -30,6 +31,7 @@ pip install Flask
 pip install Flask-SQLAlchemy
 pip install Flask-WTF
 pip install Flask-Migrate
+pip install Flask-Login
 ```
 
 An alternative to using the console is to go file > settings > Project:<projName> > Project interpreter
