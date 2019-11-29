@@ -1,10 +1,32 @@
 from app import app
-import pytest
+from .models import *
+from .notifications import Email
 import unittest
+import os
 
-def func(x):
-    return x + 1
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-def test_answer():
-    assert func(3) == 5
+class FlaskTests(unittest.TestCase):
+
+    # Runs before every test
+    def setUp(self):
+        app.config['TESTING'] = True
+        app.config['WTF_CSRF_ENABLED'] = False
+        app.config['DEBUG'] = False
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL') or \
+                                                'sqlite:///' + os.path.join(basedir, 'test.db')
+        self.app = app.test_client()
+        db.drop_all()
+        db.create_all()
+
+    # Runs after every test
+    def tearDown(self):
+        pass
+
+    def email_sending_test(self):
+        response = self.app.get('/send_email_button', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+if __name__ == '__main__':
+    unittest.main()
