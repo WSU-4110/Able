@@ -33,19 +33,6 @@ class AccountCreation(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
-        else:
-            try:
-                server = smtplib.SMTP_SSL('smtp.gmail.com', 465)  # Establishes a connection with the gmail server
-                server.login('able4110group@gmail.com', 'able12345')  # Accesses the server function to prompt login
-                server.sendmail(
-                    'able4110group@gmail.com',
-                    'able4110group@gmail.com',
-                    "Test Message, Do Not Respond")  # Accesses the server function to send the email
-                server.quit()  # Exits out of the server so there is no trailing connection
-                print('Email sent!')  # Let the user know that their email was sent sussessfully
-
-            except:
-                print('Something went wrong...')
 
 class Login(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])

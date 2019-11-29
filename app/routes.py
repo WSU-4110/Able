@@ -6,6 +6,7 @@ from flask_login import current_user, login_user, logout_user
 from app.notifications import Email
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation, Login, Contact
+import smtplib
 
 
 # Root directory route. This will always be the first page to load.
@@ -76,6 +77,18 @@ def registration():
         # Have to query the DB to login rather than being able to use data from registration form
         user = User.query.filter_by(username=account_creation.username.data).first()
         login_user(user)
+        try:
+            server = smtplib.SMTP_SSL('smtp.gmail.com', 465)  # Establishes a connection with the gmail server
+            server.login('able4110group@gmail.com', 'able12345')  # Accesses the server function to prompt login
+            server.sendmail(
+                'able4110group@gmail.com',
+                'able4110group@gmail.com',
+                "Test Message, Do Not Respond")  # Accesses the server function to send the email
+            server.quit()  # Exits out of the server so there is no trailing connection
+            print('Email sent!')  # Let the user know that their email was sent sussessfully
+
+        except:
+            print('Something went wrong...')
         return redirect(url_for('main_page'))
     return render_template('account-creation.html', form=account_creation)
 
@@ -118,7 +131,7 @@ def retrieve_user_profile():
 def retrieve_editor_picks():
     return render_template('editor-picks.html')
 
-@app.route('/return_to_main', methods=['GET', 'POST'])
+@app.route('/return_to_menu', methods=['GET', 'POST'])
 def return_to_main_menu():
     return render_template('main.html')
 
