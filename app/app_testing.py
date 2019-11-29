@@ -1,5 +1,6 @@
 from app import app
 from .models import *
+from .routes import *
 import unittest
 import os
 
@@ -23,9 +24,21 @@ class FlaskTests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_main_page(self):
-        response = self.app.get('/', follow_redirects=True)
+    def test_email_sending(self):
+        response = self.app.get('/send_email_button', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
+    def test_user_profile_switch(self):
+        response = self.app.get('/user_profile', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_return_to_menu(self):
+        response = self.app.get('/return_to_menu', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_show_new_reviews(self):
+        response = self.app.get('/show_reviews', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        
 if __name__ == '__main__':
     unittest.main()
