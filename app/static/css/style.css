@@ -88,9 +88,6 @@
         font-weight: 500;
         padding: 6px 12px;
       }
-      body {
-          font-family: "Josefin Sans", sans-serif;
-      }
         #top{
             position:relative;
         }
@@ -98,7 +95,6 @@
               padding-top: 0;
           }
           body {
-              padding-top: 70px;
               background-color: #197e92b8;
           }
           .btn-grey{
@@ -151,7 +147,6 @@
         .review-block-description{
             font-size:13px;
         }
-
 
 table {
   margin: 0 auto;
@@ -213,6 +208,7 @@ table th {
 .attribution:hover {
   color: #1fa67a;
 }
+
 .reviewform{
     padding:30px;
 }

@@ -9,11 +9,15 @@
                 <a class="navbar-brand" href="/">Able</a>
             </div>
             <ul class = "nav navbar-nav">
-                <li><a href="#">About</a></li>
+                <li><a href="about">About</a></li>
                 <li><a href="#">Profile</a></li>
                 <li><a href="navigation">Navigation</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="show_reviews">User Profile</a></li>
+                <li><a href="contact">Contact Us</a></li>
+                <li><a href="{{ url_for('registration') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                <li><a href="{{ url_for('reviews') }}">Reviews</a></li>
                 <li><a href="#">Business Profile</a></li>
                 <li><a href="#">Change Language</a></li>
             </ul>
