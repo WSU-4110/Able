@@ -1,20 +1,22 @@
-from app import app
-from app.models import *
 import unittest
 import os
+from app import db, app
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
-class PyCharmTests(unittest.TestCase):
+class BasicTests(unittest.TestCase):
+
+    ############################
+    # setup and teardown ####
+    ############################
 
     # executed prior to each test
     def test_setUp(self):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         app.config['DEBUG'] = False
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-                                                os.path.join(app.config['BASEDIR'], 'able.db')
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.config['BASEDIR'], 'able.db')
         self.app = app.test_client()
         db.drop_all()
         db.create_all()
