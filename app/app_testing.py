@@ -24,8 +24,8 @@ class FlaskTests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_user_profile_switch(self):
-        response = self.app.get('/user_profile', follow_redirects=True)
+    def test_return_to_menu(self):
+        response = self.app.get('/return_to_menu', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
