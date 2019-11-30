@@ -24,8 +24,8 @@ class FlaskTests(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_write_new_review(self):
-        response = self.app.get('/write', follow_redirects=True)
+    def test_show_new_reviews(self):
+        response = self.app.get('/show_reviews', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':
