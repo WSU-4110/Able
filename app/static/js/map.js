@@ -74,4 +74,74 @@ function initMap() {
               console.log('Checkbox clicked! New state=' + this.checked);
               autocomplete.setOptions({strictBounds: this.checked});
             });
+
+        var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+        //(1) Hopcat
+        var hopcat = new google.maps.Marker({
+            position: {lat: 42.352685, lng: -83.061536},
+            map: map,
+            icon: image,
+            title: 'Hopcat'
+        });
+        //InfoWindow (Hopcat)
+        //(2) Majestic Theater
+        var majestic = new google.maps.Marker({
+            position: {lat: 42.351673, lng: -83.060076},
+            map: map,
+            icon: image
+        });
+        //(3) Welcome Center
+        var welcome = new google.maps.Marker({
+            position: {lat: 42.357242, lng: -83.065131},
+            map: map,
+            icon: image
+        });
+        //(4) La Pita
+        var pita = new google.maps.Marker({
+            position: {lat: 42.357240, lng: -83.066208},
+            map: map,
+            icon: image
+        });
+        //(5) Eastern Market
+        var market = new google.maps.Marker({
+            position: {lat: 42.347381, lng: -83.040503},
+            map: map,
+            icon: image
+        });
+        //(6) Detroit Opera House
+         var opera = new google.maps.Marker({
+            position: {lat: 42.336469, lng: -83.048638},
+            map: map,
+            icon: image
+        });
+         //(7) LCA
+         var arena = new google.maps.Marker({
+            position: {lat: 42.341234, lng: -83.055048},
+            map: map,
+            icon: image
+        });
+         //(8) Whole Foods
+         var grocery = new google.maps.Marker({
+            position: {lat: 42.348660, lng: -83.056608},
+            map: map,
+            icon: image
+        });
+         //(9) MoCAD
+         var museum = new google.maps.Marker({
+            position: {lat: 42.353882, lng: -83.061874},
+            map: map,
+            icon: image
+        });
+         //(10) Selden Standard
+         var restaurant = new google.maps.Marker({
+            position: {lat: 42.348054, lng: -83.064964},
+            map: map,
+            icon: image
+        });
+         //(11) Parc
+         var restaurant = new google.maps.Marker({
+            position: {lat: 42.331824, lng: -83.064964},
+            map: map,
+            icon: image
+        });
 }
