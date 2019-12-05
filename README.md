@@ -9,6 +9,7 @@ Required Software and Libraries
 ```
 -Python 3.7.3
 -Flask
+-Flask-BootStrap
 -Flask-SQLAlchemy
 -Flask-WTF
 -Flask-Migrate
@@ -30,6 +31,7 @@ Create a new Python project from this repo. You will then need to use pip to ins
 This is to be done from the python console in PyCharm or follow the alternative method below
 ---------------------------------------------------------------------------------------------
 pip install Flask
+pip install Flask-BootStrap
 pip install Flask-SQLAlchemy
 pip install Flask-WTF
 pip install Flask-Migrate
@@ -47,4 +49,5 @@ You may also use the command "pip install -r requirements.txt" from the console 
 ## Built With
 
 * [Flask](http://flask.pocoo.org/) - The web framework used
+* [BootStrap](https://getbootstrap.com/) - An HTML and CSS library that makes designing web pages simple
 * [PyCharm](https://www.jetbrains.com/pycharm/) - A sleek and powerful IDE by JetBrains for Python development
