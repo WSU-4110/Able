@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user_page.css') }}">
+    <div class="title_display">
+        <title>User Profile</title>
+    </div>
+</head>
+<body>
+    <div class="h1_class">
+        <br><br><h1>These are the Top Editor Picks:</h1><br><br>
+    </div>
+    <div class="top_editor_picks">
+        <p>This is a Rite Aid Pharmacy by Wayne State University. They always have the cleanest parking spaces with clearly indicated handicapped spots.
+            <br>The Staff is always kind, respectful, and willing to help disabled shoppers to their vehicles.</p>
+        <p>Location: 4612 Woodward Ave Detroit MI 48201</p>
+        <a href="https://locations.riteaid.com/locations/mi/detroit/4612-woodward-avenue.html">Rite Aid Pharmacy</a><br><br>
+
+
+        <p>The Barnes and Nobles near Wayne State has extremely helpful wheelchair ramps and all of their employees are specially trained to help take care of those in need.</p>
+        <p>Location: 82 West Warren Street Detroit MI 48202</p>
+        <a href="https://www.barnesandnoble.com/">Barnes and Nobles</a><br><br>
+
+        <p>Besides the great food to be found at this location, they also have many handicapped accessiblity tools for use.
+            <br>One such tool is an electronic ordering screen which allows the user to order and pick up their food without having to ever leave their vehicle.</p>
+        <p>Location: 660 Woodward Ave Detroit MI 48226</p>
+        <a href="https://www.shakeshack.com/location/downtown-detroit-mi">Shake Shack</a><br><br><br>
+    </div>
+    <div class="h2_class">
+        <h2>
+            Write your reviews for locations you have visited below!
+        </h2>
+    </div><br>
+    <div class="review_entry_formatting">
+        <div class="review_entry_box">
+            <a href="write"><button type="button">Click here to submit a review!</button></a><br>
+        </div><br><br>
+    </div>
+    <div class="retrieved_reviews">
+        {% for i in reviews %}
+            <div class="review_borders">
+                <br>{{ i.review }}<br><br>
+            </div><br><br>
+        {% endfor %}
+    </div><br><br><br>
+
+
+</body>
+{% endblock %}

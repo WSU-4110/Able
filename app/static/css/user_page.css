@@ -19,29 +19,34 @@ body {
 {
     background-color: #4caf50; /* Green */
     border: none;
-    color: white;
+    color: black;
 }
 
 .h1_class
 {
     font-size: 32px;
+    text-align: center;
+    color: black;
 }
 
 .h2_class
 {
     font-size: 32px;
     text-align: center;
+    color: black;
 }
 
 .top_editor_picks
 {
     text-align: center;
     font-size: 22px;
+    color: black;
 }
 
 .review_entry_formatting
 {
     text-align: center;
+    color: black;
 }
 
 .review_entry_box
@@ -49,33 +54,18 @@ body {
     padding: 15px 32px;
     text-align: center;
     font-size: 26px;
-}
-
-.return_to_menu_class
-{
-    text-align: center;
-    font-size: 22px;
+    color: black;
 }
 
 .retrieved_reviews
 {
     text-align: center;
     font-size: 22px;
+    color: black;
 }
 
 .review_borders
 {
     border-style: dashed;
     border-color: black;
-}
-
-.return_menu_button
-{
-    background-color: #4caf50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
 }

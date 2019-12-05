@@ -54,7 +54,7 @@ def reviews():
     avg = 1
     for i in reviews:
         avg = avg + i.rating
-    # avg = avg/reviews.count()
+    avg = avg/reviews.count()
     return render_template('reviews.html', reviews=reviews, average=avg)
 
 
@@ -123,20 +123,8 @@ def sending_emails():
 
 @app.route('/user_profile', methods=['GET', 'POST'])
 def retrieve_user_profile():
-    return render_template('User Profile.html')
-
-@app.route('/see_editor_picks', methods=['GET', 'POST'])
-def retrieve_editor_picks():
-    return render_template('editor-picks.html')
-
-@app.route('/return_to_menu', methods=['GET', 'POST'])
-def return_to_main_menu():
-    return render_template('main.html')
-
-@app.route('/show_reviews', methods=['GET', 'POST'])
-def list_all_reviews():
     all_reviews = Reviews.query
-    return render_template('User Profile.html', reviews=all_reviews)
+    return render_template('userprofile.html', reviews=all_reviews)
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
