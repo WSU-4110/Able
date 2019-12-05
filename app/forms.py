@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from app.models import User
+import smtplib
 from app.models import Reviews
 
 
@@ -30,7 +31,6 @@ class AccountCreation(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
-
 
 class Login(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
