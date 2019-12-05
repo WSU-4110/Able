@@ -12,7 +12,7 @@ html {
 body {
     display: table-cell;
     vertical-align: middle;
-    background-color: darkslategray;;
+    background-color: darkslategray;
 }
 
 .title_display
@@ -68,4 +68,9 @@ body {
 {
     border-style: dashed;
     border-color: black;
+}
+
+.links
+{
+    color: yellow;
 }
