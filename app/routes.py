@@ -85,7 +85,6 @@ def registration():
                 'able4110group@gmail.com',
                 "Test Message, Do Not Respond")  # Accesses the server function to send the email
             server.quit()  # Exits out of the server so there is no trailing connection
-            print('Email sent!')  # Let the user know that their email was sent sussessfully
 
         except:
             print('Something went wrong...')

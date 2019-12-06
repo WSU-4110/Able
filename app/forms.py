@@ -3,7 +3,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from app.models import User
-import smtplib
 from app.models import Reviews
 
 
