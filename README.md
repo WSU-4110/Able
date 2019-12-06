@@ -1,6 +1,6 @@
 # Able by M.I.L.K.D
 
-This is the repo for the CSC 4110 Project.
+This is the repo for the CSC 4110 Project, Able, by team M.I.L.K.D.
 
 ### Prerequisites
 

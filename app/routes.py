@@ -6,6 +6,7 @@ from flask_login import current_user, login_user, logout_user
 from app.notifications import Email
 from app.models import User, Reviews
 from app.forms import AccountCreation, ReviewCreation, Login, Contact
+import smtplib
 
 
 # Root directory route. This will always be the first page to load.
@@ -50,7 +51,7 @@ def write_review():
 @app.route('/reviews')
 def reviews():
     reviews = Reviews.query.filter_by(location=1)
-    avg = 0
+    avg = 1
     for i in reviews:
         avg = avg + i.rating
     avg = avg/reviews.count()
@@ -76,6 +77,17 @@ def registration():
         # Have to query the DB to login rather than being able to use data from registration form
         user = User.query.filter_by(username=account_creation.username.data).first()
         login_user(user)
+        try:
+            server = smtplib.SMTP_SSL('smtp.gmail.com', 465)  # Establishes a connection with the gmail server
+            server.login('able4110group@gmail.com', 'able12345')  # Accesses the server function to prompt login
+            server.sendmail(
+                'able4110group@gmail.com',
+                'able4110group@gmail.com',
+                "Test Message, Do Not Respond")  # Accesses the server function to send the email
+            server.quit()  # Exits out of the server so there is no trailing connection
+
+        except:
+            print('Something went wrong...')
         return redirect(url_for('main_page'))
     return render_template('account-creation.html', form=account_creation)
 
@@ -101,8 +113,6 @@ def logout():
     logout_user()
     return redirect(url_for('registration'))
 
-
-# This is not how we should be doing this and needs to be reworked to fit in the Flask conventions
 # This route points to a button which will send an email
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
@@ -110,20 +120,10 @@ def sending_emails():
     send.send_email()
     return render_template('main.html')
 
-
-
-# Same as the send_email_button, this needs to be reworked
-@app.route('/see_editor_picks', methods=['GET', 'POST'])
-def retrieve_editor_picks():
-    return render_template('editor-picks.html')
-
-
-
-# I'm not sure where this is implemented? In the side nav?
-@app.route('/return_to_main', methods=['GET', 'POST'])
-def return_to_main_menu():
-    return render_template('main.html')
-
+@app.route('/user_profile', methods=['GET', 'POST'])
+def retrieve_user_profile():
+    all_reviews = Reviews.query
+    return render_template('userprofile.html', reviews=all_reviews)
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run

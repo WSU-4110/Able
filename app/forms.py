@@ -31,7 +31,6 @@ class AccountCreation(FlaskForm):
         if user is not None:
             raise ValidationError('Please use a different email address.')
 
-
 class Login(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
