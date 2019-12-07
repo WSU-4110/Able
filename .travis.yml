@@ -1,6 +1,7 @@
 language: python
-python:
-  3.7
+python: 3.7
 install: pip install -r requirements.txt
 script: pytest
-
+deploy:
+  api_key:
+    secure: mkvq85IpLkOorHQGSecntKUUu4Wmkubg/+XpNozlZXQB/joHFnA2GeelqWHbZ9Y31qeJ8cuBatvjyPmeUEyJlqP1Xc2kyhSz4ljhu0aGs1SDjpM/K7YeqFqLzJJRAxzdJn0VlSaL+cp6cueF8WwQ+S25EeU2AC6GVjuE10OoLHG6RFcBfVhfnd3Fx7Bsj3a13bWmtgXPb3FLQWqliVqxiZ/ghGfONjYtdLoT0idvX6UKLw4Ixkk/fFSDRftz87sHK+UE8WMHWGJnOc/w9tY3eV/Vy4Kp5E87b7d64+NP6H/fkkDDbbmchCIeBOBcB+/syM+Dz/p8FOwAJPv+r4tDfd9FIwXf1UV9YPRacnXCXNZnkvNIw+8jwAfZLU9/pLBvyw2L1yU6hCp0j/PeHMHnGqeV4kYtX4au3cCeazNSbWDg9APZ4iwl6AqSZVIJF/PfosB6pQlBgy+DigCArWG1lCEuyNR+ZT+OxlTYAbQkC2T5pAxhuJkl7ejUeQOCy91R7s60aX2iaZ3IgIqGgTgFKDLF+lQOedkL9mvLV3awYQWif5eUrne8B8zcYKeNwlHM3dP3FWghQKNi/IFGViLEWgg8zUmgiSmkwX6+X8N7XuCnNVwd11LSUEnmh4+s8HtL9dGTU8skj9n+rYG6WWktDKtfwhz1IpYmz/o0XWFBarg=
