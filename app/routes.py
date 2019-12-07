@@ -54,7 +54,7 @@ def reviews():
     avg = 1
     for i in reviews:
         avg = avg + i.rating
-    avg = avg/reviews.count()
+    avg = avg/(reviews.count()+1)
     return render_template('reviews.html', reviews=reviews, average=avg)
 
 
