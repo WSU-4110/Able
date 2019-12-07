@@ -54,7 +54,7 @@ def reviews():
     avg = 1
     for i in reviews:
         avg = avg + i.rating
-    avg = avg/(reviews.count()+1)
+    avg = avg / (reviews.count() + 1)
     return render_template('reviews.html', reviews=reviews, average=avg)
 
 
@@ -113,6 +113,7 @@ def logout():
     logout_user()
     return redirect(url_for('registration'))
 
+
 # This route points to a button which will send an email
 @app.route('/send_email_button', methods=['GET', 'POST'])
 def sending_emails():
@@ -120,10 +121,12 @@ def sending_emails():
     send.send_email()
     return render_template('main.html')
 
+
 @app.route('/user_profile', methods=['GET', 'POST'])
 def retrieve_user_profile():
     all_reviews = Reviews.query
     return render_template('userprofile.html', reviews=all_reviews)
+
 
 # Can't really explain what this does technically, but it works ¯\_(ツ)_/¯
 # I just now this makes it able to run
